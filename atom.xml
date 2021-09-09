@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>林靖斌的Blog</title>
+  
+  <subtitle>-天道酬勤</subtitle>
+  <link href="https://goal75kg.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://goal75kg.github.io/"/>
+  <updated>2021-09-09T08:32:46.171Z</updated>
+  <id>https://goal75kg.github.io/</id>
+  
+  <author>
+    <name>Lin JIngbin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ros学习笔记</title>
+    <link href="https://goal75kg.github.io/2021/09/09/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://goal75kg.github.io/2021/09/09/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-09-09T08:15:29.026Z</published>
+    <updated>2021-09-09T08:32:46.171Z</updated>
+    
+    
+    
+    
+    <category term="学习笔记" scheme="https://goal75kg.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="ros" scheme="https://goal75kg.github.io/tags/ros/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>This is my first blog</title>
+    <link href="https://goal75kg.github.io/2021/09/08/This-is-my-first-blog/"/>
+    <id>https://goal75kg.github.io/2021/09/08/This-is-my-first-blog/</id>
+    <published>2021-09-08T06:01:55.000Z</published>
+    <updated>2021-09-08T06:03:00.189Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
