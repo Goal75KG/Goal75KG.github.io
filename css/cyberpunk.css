@@ -12189,7 +12189,7 @@ fieldset[disabled] .button:not(input).is-grey-lightest.is-inverted:before:before
   left: 0;
   right: 0;
   bottom: -2px;
-  background: url("../img/razor-top-black.svg") repeat-x top;
+  background: url("../img/scroll.png") repeat-x top;
   height: 40px;
 }
 .navbar-main .navbar-menu .navbar-item:hover,
