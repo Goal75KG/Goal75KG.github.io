@@ -6,7 +6,7 @@
   <link href="https://goal75kg.github.io/atom.xml" rel="self"/>
   
   <link href="https://goal75kg.github.io/"/>
-  <updated>2021-09-23T04:49:48.689Z</updated>
+  <updated>2021-09-25T12:36:31.880Z</updated>
   <id>https://goal75kg.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>自动签到脚本正确食用教程</title>
+    <link href="https://goal75kg.github.io/2021/09/25/%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC%E6%AD%A3%E7%A1%AE%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://goal75kg.github.io/2021/09/25/%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC%E6%AD%A3%E7%A1%AE%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <published>2021-09-25T12:12:42.000Z</published>
+    <updated>2021-09-25T12:36:31.880Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li><strong>简化工作步骤</strong>  </li><li><strong>提升工作效率</strong>  </li><li><strong>快速升级/获取</strong>  </br></li></ul><p><strong>这就是云函数(SCF)！</strong></p><span id="more"></span><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>手动打卡卡很烦？ 连续签到总是忘记？ 手动升级太过于慢速？…<br>那么恭喜你，你的问题即将被解决。<br></br><br><em>效果图如下:</em>  </p><p><img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images//img/Screenshot_2021-09-25-20-26-34-370_com.tencent.mm.jpg"><br></br></br><br>可以说是特别方便！ </p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>完整版教程在这里：<a href="https://sitoi.gitee.io/dailycheckin/">https://sitoi.gitee.io/dailycheckin/</a><br>建议使用腾讯云函数进行部署<br><strong>优点：几乎不计费，部署方便</strong><br><em>文章中提到的所有内容均来自于互联网，仅供学习研究使用，请于下载后24H内在您的计算机上删除。</em></p>]]></content>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;简化工作步骤&lt;/strong&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提升工作效率&lt;/strong&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速升级/获取&lt;/strong&gt;  &lt;/br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;这就是云函数(SCF)！&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://goal75kg.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="云函数" scheme="https://goal75kg.github.io/tags/%E4%BA%91%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="脚本" scheme="https://goal75kg.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>壁纸推荐</title>
     <link href="https://goal75kg.github.io/2021/09/23/%E5%A3%81%E7%BA%B8%E6%8E%A8%E8%8D%90/"/>
     <id>https://goal75kg.github.io/2021/09/23/%E5%A3%81%E7%BA%B8%E6%8E%A8%E8%8D%90/</id>
     <published>2021-09-23T03:03:17.000Z</published>
-    <updated>2021-09-23T04:49:48.689Z</updated>
+    <updated>2021-09-25T12:36:56.867Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="推荐原因"><a href="#推荐原因" class="headerlink" title="推荐原因"></a>推荐原因</h2><p>作者xision 曾获得第三届GGAC 2D特等奖； 第二届GGAC校园2D银奖； 第一届GGAC校园2D金奖； 2018腾讯TGL高校创作星金奖<br>本次见龙在田系列，作者获得了第十六届中国动漫金龙奖，可见画作质量之高，作者能力之强。  </p><span id="more"></span><h2 id="样张欣赏"><a href="#样张欣赏" class="headerlink" title="样张欣赏"></a>样张欣赏</h2><p><img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images//img/%E5%A3%81%E7%BA%B8%E6%8E%A8%E8%8D%90/%E8%A7%81%E9%BE%99%E5%9C%A8%E7%94%B0/1.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images//img/%E5%A3%81%E7%BA%B8%E6%8E%A8%E8%8D%90/%E8%A7%81%E9%BE%99%E5%9C%A8%E7%94%B0/4.jpg"></p><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="http://80kg-images.test.upcdn.net/img/%E8%A7%81%E9%BE%99%E5%9C%A8%E7%94%B0.rar">点我下载</a></p><p><strong>图片收集自互联网，如有侵权，请联系我，立即删帖处理。</strong></p>]]></content>
     
@@ -33,7 +61,9 @@
     <category term="壁纸" scheme="https://goal75kg.github.io/categories/%E5%A3%81%E7%BA%B8/"/>
     
     
-    <category term="壁纸，见龙在田" scheme="https://goal75kg.github.io/tags/%E5%A3%81%E7%BA%B8%EF%BC%8C%E8%A7%81%E9%BE%99%E5%9C%A8%E7%94%B0/"/>
+    <category term="壁纸" scheme="https://goal75kg.github.io/tags/%E5%A3%81%E7%BA%B8/"/>
+    
+    <category term="见龙在田" scheme="https://goal75kg.github.io/tags/%E8%A7%81%E9%BE%99%E5%9C%A8%E7%94%B0/"/>
     
     <category term="xision" scheme="https://goal75kg.github.io/tags/xision/"/>
     
