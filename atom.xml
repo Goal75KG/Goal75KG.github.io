@@ -6,7 +6,7 @@
   <link href="https://goal75kg.github.io/atom.xml" rel="self"/>
   
   <link href="https://goal75kg.github.io/"/>
-  <updated>2021-09-25T12:36:31.880Z</updated>
+  <updated>2021-09-29T00:05:11.277Z</updated>
   <id>https://goal75kg.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你真的会用输入法吗？</title>
+    <link href="https://goal75kg.github.io/2021/09/26/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E7%94%A8%E8%BE%93%E5%85%A5%E6%B3%95%E5%90%97%EF%BC%9F/"/>
+    <id>https://goal75kg.github.io/2021/09/26/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E7%94%A8%E8%BE%93%E5%85%A5%E6%B3%95%E5%90%97%EF%BC%9F/</id>
+    <published>2021-09-26T07:36:05.000Z</published>
+    <updated>2021-09-29T00:05:11.277Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你会用搜狗输入法，你会用<strong>辅助码、拆分输入、U模式吗？？</strong><br><strong>什么，都没听说过？那还不快来学学！</strong></p><span id="more"></span><p>现在正在阅读这篇文章的你，在电脑上最习惯使用的输入法是什么呢？应该有很大比例的回答是：搜狗输入法。</p><p>那么，为了提升文字录入效率，除了提升自己的思维和击键速度，这里还有一些硬技巧可能用得上。  </p><h2 id="辅助码：给候选字增加过滤条件"><a href="#辅助码：给候选字增加过滤条件" class="headerlink" title="辅助码：给候选字增加过滤条件"></a>辅助码：给候选字增加过滤条件</h2><p>如果我想打的句子中包含日常不怎么用得上的字，比如：僻。</p><p>当我直接输入 <code>pi</code> 时，出现的单字琳琅满目，如何迅速定位到我们需要的「僻」字呢？辅助码的出现，就是为了给候选字增加过滤条件，加快选字速度。 </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040861.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>  <p>在这个例子中，我使用了「偏旁」作为候选字的附加条件。首先，我们输入「僻」字的拼音 <code>pi</code> ，再按下 <code>Tab</code> 键启动辅助码模式。「僻」的偏旁是单人旁，也就是「人」，输入它的拼音 <code>ren</code> 的首字母 <code>r</code>，就把搜索范围缩小了许多。<br>当一个偏旁不足以找出我们所需的汉字时，不妨多加几个试试：  </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040885.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>  <p>当我想要输入「嚏」时，我考虑把它拆解之后，输入前两个部分「口」和「十」的拼音首字母 <code>ks</code>（分别是 <code>kou</code> 和 <code>shi</code> 的第一个字母）作为辅助码，很顺利地把「嚏」找了出来。</p><p>更多时候，我会使用辅助码的另一种编码方式：笔顺。  </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040907.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>  <p>为了打出「孓」字，我用它的笔顺进行了拆分。第一笔是横折，对应的是「折」，所以输入 <code>z</code>。第二笔输入的是 <code>s</code>，表示「竖钩」中的「竖」。第三笔是「捺」，因此输入 <code>n</code>。这时候「孓」字已经来到了候选字的第一位。</p><p>笔顺一共分为五个按键，分别是横 <code>h</code> 竖 <code>s</code> 撇 <code>p</code> 点 <code>d</code> 折 <code>z</code>。其中「点」也可以用「捺」来表示，输入 <code>n</code>可以达到一样的效果。</p><p>它有点类似于以前按键手机上的笔画输入法，一些复杂的笔画可能需要多试几次才可以确认究竟对应「横竖撇点折」中哪一个大类。  </p><h2 id="拆分输入：好玩的拼字游戏"><a href="#拆分输入：好玩的拼字游戏" class="headerlink" title="拆分输入：好玩的拼字游戏"></a>拆分输入：好玩的拼字游戏</h2><p>许多生僻字光看着就是几个独立的汉字拼砌而成，它们的读音却真的是一个谜。对于这些汉字，我们可以把组成这个汉字的几部分拆开来独立输入。  </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040924.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>  <p>当我们输入 niuniuniu 的时候，在第 5 个候选项中出现了「犇」这个候选字，还很友善地提供了它的读音。  </p><p>然而如我标题所说，这个输入模式更可以说是「好玩」，而实用性并不高。它的词库很小，只有极少的「常用生僻字」可以通过这种方式打出来。    </p><h2 id="U-模式：当辅助码反客为主"><a href="#U-模式：当辅助码反客为主" class="headerlink" title="U 模式：当辅助码反客为主"></a>U 模式：当辅助码反客为主</h2><p>也许你看到了前面辅助码的好用，却也发现它一个局限：必须先知道读音。当我们不知道读音时，能不能直接用辅助码在所有汉字中进行选取呢？</p><p>答案是肯定的，这就是 U 模式。  </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040940.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>  <p>首先点击键盘上的 u 键，接着依照笔顺输入对应的笔画首字母，就可以找到所需查找的字。同样的，筛选出来的字会给出读音，便于后期直接使用拼音输入。</p><p>除了笔顺，它也同样支持偏旁，或者说拆字方式的输入。  </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040957.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>   <p>这里，我把「枝」拆成「木」和「支」两部分。虽然依然可以使用每一部分的首字母 mz 来进行过滤，但是仅使用首字母会带来大量的重码，导致选字的速度急剧下降。因此我们把每一部分的拼音完整输入，形成了 muzhi。</p><p>U 模式甚至支持笔顺和汉字组件的交替输入。  </p><div align=center><img src="https://cdn.sspai.com/editor/u_sanko/15815818040973.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></div>  <p>在这一次尝试中，我保留了「木」的部分使用拼音，而对「支」的部分使用了笔顺，依然可以正确打出「枝」字。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;你会用搜狗输入法，你会用&lt;strong&gt;辅助码、拆分输入、U模式吗？？&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;什么，都没听说过？那还不快来学学！&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://goal75kg.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="搜狗输入法" scheme="https://goal75kg.github.io/tags/%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>自动签到脚本正确食用教程</title>
