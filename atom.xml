@@ -6,7 +6,7 @@
   <link href="https://goal75kg.github.io/atom.xml" rel="self"/>
   
   <link href="https://goal75kg.github.io/"/>
-  <updated>2021-11-18T06:26:35.423Z</updated>
+  <updated>2021-11-18T06:28:33.841Z</updated>
   <id>https://goal75kg.github.io/</id>
   
   <author>
@@ -21,15 +21,12 @@
     <link href="https://goal75kg.github.io/2021/11/18/%E5%8D%95%E7%89%87%E6%9C%BA%E6%9C%9F%E6%9C%AB%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E5%8C%85/"/>
     <id>https://goal75kg.github.io/2021/11/18/%E5%8D%95%E7%89%87%E6%9C%BA%E6%9C%9F%E6%9C%AB%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E5%8C%85/</id>
     <published>2021-11-18T06:15:31.000Z</published>
-    <updated>2021-11-18T06:26:35.423Z</updated>
+    <updated>2021-11-18T06:28:33.841Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="2021-2022学年单片机期末必备工具包"><a href="#2021-2022学年单片机期末必备工具包" class="headerlink" title="2021-2022学年单片机期末必备工具包"></a>2021-2022学年单片机期末必备工具包</h2><h3 id="工具包内容："><a href="#工具包内容：" class="headerlink" title="工具包内容："></a>工具包内容：</h3><p><img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images/img/Quicker_20211118_142452.png"></p><p><strong>工具包集合了常用的头文件、库：</strong></p><ul><li>stm32f10x.h</li><li>gpio.h</li><li>delay.h</li><li>usart.h</li><li>sys.h</li><li>timer.h</li><li>lcd1602.h</li><li>exti.h  </li></ul><p><strong>初始化：</strong></p><ul><li>uart_init(115200);  </li><li>LED_Init();  </li><li>KEY_Init();  </li><li>delay_init();  </li><li>BEEP_Init();  </li><li>IR_Init();  </li><li>LCD1602_Init();      </li><li>Timer3_Init(1999,35999);  </li></ul><p><strong>实验箱所有能用到的引脚全部初始化</strong><br><strong>祝你期末稳过！</strong>  </p><p><strong>下载地址：</strong><br><a href="https://wwe.lanzoui.com/irm3hwmivud">https://wwe.lanzoui.com/irm3hwmivud</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="2021-2022学年单片机期末必备工具包"><a href="#2021-2022学年单片机期末必备工具包" class="headerlink" title="2021-2022学年单片机期末必备工具包"></a>2021-2022学年单片机期末必备工具包</h2><h3 id="工具包内容："><a href="#工具包内容：" class="headerlink" title="工具包内容："></a>工具包内容：</h3><p><img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images/img/Quicker_20211118_142452.png"></p><span id="more"></span><p><strong>工具包集合了常用的头文件、库：</strong></p><ul><li>stm32f10x.h</li><li>gpio.h</li><li>delay.h</li><li>usart.h</li><li>sys.h</li><li>timer.h</li><li>lcd1602.h</li><li>exti.h  </li></ul><p><strong>初始化：</strong></p><ul><li>uart_init(115200);  </li><li>LED_Init();  </li><li>KEY_Init();  </li><li>delay_init();  </li><li>BEEP_Init();  </li><li>IR_Init();  </li><li>LCD1602_Init();      </li><li>Timer3_Init(1999,35999);  </li></ul><p><strong>实验箱所有能用到的引脚全部初始化</strong><br><strong>祝你期末稳过！</strong>  </p><p><strong>下载地址：</strong><br><a href="https://wwe.lanzoui.com/irm3hwmivud">https://wwe.lanzoui.com/irm3hwmivud</a></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
+    <summary type="html">&lt;h2 id=&quot;2021-2022学年单片机期末必备工具包&quot;&gt;&lt;a href=&quot;#2021-2022学年单片机期末必备工具包&quot; class=&quot;headerlink&quot; title=&quot;2021-2022学年单片机期末必备工具包&quot;&gt;&lt;/a&gt;2021-2022学年单片机期末必备工具包&lt;/h2&gt;&lt;h3 id=&quot;工具包内容：&quot;&gt;&lt;a href=&quot;#工具包内容：&quot; class=&quot;headerlink&quot; title=&quot;工具包内容：&quot;&gt;&lt;/a&gt;工具包内容：&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images/img/Quicker_20211118_142452.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     
