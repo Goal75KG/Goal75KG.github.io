@@ -6,7 +6,7 @@
   <link href="https://goal75kg.github.io/atom.xml" rel="self"/>
   
   <link href="https://goal75kg.github.io/"/>
-  <updated>2021-12-02T13:22:45.391Z</updated>
+  <updated>2022-03-10T11:27:30.201Z</updated>
   <id>https://goal75kg.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>matlab2018安装问题</title>
+    <link href="https://goal75kg.github.io/2022/03/10/matlab2018%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/"/>
+    <id>https://goal75kg.github.io/2022/03/10/matlab2018%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/</id>
+    <published>2022-03-10T10:49:44.000Z</published>
+    <updated>2022-03-10T11:27:30.201Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>matlab2018a/b破解后打开报错问题</strong></p><span id="more"></span><p>matlab2018a/b安装后根据网上形形色色的破解教程破解后，打开时就会出现如下图所示的错误：<img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images//img/2022%E5%B9%B43%E6%9C%8810%E6%97%A519:00:49"><br>根据一些小小的思路，最终判断为缺少关键性.dll文件，只需要根据你所找的破解教程内附带的creack文件夹,进入这个路径下：<br><img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images//img/2022%E5%B9%B43%E6%9C%8810%E6%97%A519:09:51"><br>复制文件夹内唯一文件netapi32.dll文件到该路径下，如果弹出窗口就选择替换即可。<img src="https://cdn.jsdelivr.net/gh/Goal75KG/Blog-images//img/2022%E5%B9%B43%E6%9C%8810%E6%97%A519:09:51"></p><p><strong>您好，如果本文给了你帮助，你可以为我推荐一下这篇文章吗？</strong></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;matlab2018a/b破解后打开报错问题&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://goal75kg.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="matlab" scheme="https://goal75kg.github.io/tags/matlab/"/>
+    
+  </entry>
   
   <entry>
     <title>马克思主义基本原理简答题</title>
