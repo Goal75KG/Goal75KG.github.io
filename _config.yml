@@ -104,3 +104,29 @@ deploy:
   type: git
   repo: git@github.com:Goal75KG/Goal75KG.github.io.git
   branch: gh-pages
+# sitemap  
+sitemap:
+  path: 
+    - sitemap.xml
+    - sitemap.txt
+  template: ./sitemap.xml
+  template_txt: ./sitemap.txt
+  rel: false
+  tags: true
+  categories: true
+
+# hexo 支持 加密访问文章 插件
+encrypt:
+  enable: true
+  abstract: 偷看？输入密码再看！
+  message: 输入密码查看
+  wrong_pass_message: Ooops！这能让你猜到？
+  wrong_hash_message: Oh, these decrypted content cannot be verified, but you can still have a look.
+  
+# hexo 支持 emojis语法 插件
+githubEmojis:
+  enable: true
+  className: github-emoji
+  unicode: false
+  styles:
+  localEmojis:
