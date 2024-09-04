@@ -1,0 +1,14 @@
+# .gitignore
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+.git*/
+themes/
+!themes/archer/_config.yml
+# 这里只备份主题的配置文件
+.vscode/
