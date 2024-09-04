@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://isjingbin.cn/2024/09/05/hello-world/</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/about/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/index/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/friends/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/categories/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/tags/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/list/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://isjingbin.cn/</loc>
+    <lastmod>2024-09-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+
+  
+</urlset>
