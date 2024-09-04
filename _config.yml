@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+title: Jingbin's Blog
+subtitle: '个人记录站'
+description: 'Jingbin的技术博客'
+keywords: 技术博客,博客,blog
+author: Jingbin Lin
+language: zh
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: A4
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
