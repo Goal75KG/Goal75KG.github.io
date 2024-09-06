@@ -14,7 +14,8 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://isjingbin.cn
-permalink: :year/:month/:day/:title/
+permalink: p/:abbrlink/
+# permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -131,3 +132,11 @@ githubEmojis:
   unicode: false
   styles:
   localEmojis:
+
+# abbrlink config
+abbrlink:
+  alg: crc32 #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
+
+
+

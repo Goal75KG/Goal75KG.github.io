@@ -1,9 +1,12 @@
 ---
 title: Windows必备技能-注册表
-date: 2023-10-13 14:48:51
-tags: [Windows, 注册表]
+tags:
+  - Windows
+  - 注册表
 category: 电脑基础
 author: isjingbin
+abbrlink: 7a32b209
+date: 2023-10-13 14:48:51
 ---
 
 # 介绍
