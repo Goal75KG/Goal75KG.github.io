@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="业余无线电入坑记录" />
+    <meta name="description" content="解决windows输入法强制为英文状态" />
     <meta name="hexo-theme-A4" content="v1.9.3" />
     <link rel="alternate icon" type="image/webp" href="/img/Peter.jpg">
     <title>Jingbin&#39;s Blog | 个人记录站</title>
@@ -161,7 +161,7 @@
         
             
                 <div class="post-main-title">
-                    业余无线电入坑记录
+                    解决windows输入法强制为英文状态
                 </div>
             
         
@@ -171,14 +171,22 @@
     <div class="post-md">
         
             
-                
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="post-toc-text">产生原因及解决思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="post-toc-text">写在最后</span></a></li></ol>
             
         
-        <div class=".article-gallery"><p>去年，曾捡到过一台摩托罗拉的对讲机，通过互联网解决了对讲机如何使用，频率怎么写的问题，对于从来没接触过对讲机的我很感兴趣。后来在搜索信息的过程中发现业余无线电领域，经过简单了解，我便产生了浓厚的兴趣，于是便打算通过钻研融入这个相对专业的小众圈子。<br>今年早些时候，我在闲鱼购买了人生中第一部手台：这是一台改装2M内存的泉盛UV-K6，独特的外观令我眼前一新，要知道上一次接触到的摩托罗拉对讲机是没有屏幕的，这部小小的手台竟有着这么多功能，于是便开始摸索着学习起来。</p>
-<p>后来，想要进一步加强对接收到信号的处理，我在<a target="_blank" rel="noopener" href="https://www.rtl-sdr.com/">RTL-SDR官网</a>购买了一台RTL-SDR V4，官网下订单居然是上海顺丰发货，这一点给一个好评。利用这款电视棒接收信号，通过SDRSharp监视处理接收到的信号，别提有多么快乐了。我做了很多尝试：守听业余中继台、收听广播、收听短波广播，这对我融于业余无线电圈子起到了启蒙作用。</p>
-<p>现在，我深知没有业余无线电操作证是没有办法合法与HAM通联的，我已经开始着手准备我的A证考试，经过一番波折，也是成功获得了A类考试资格，听说A类题目非常简单，期待着我的好消息。晒一下我的准考证：</p>
-<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409061611603.jpg" title="业余无线电台准考证1725610066527" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409061611603.jpg" alt="业余无线电台准考证1725610066527"></a></p>
-<p>后续我将会分享自己在折腾设备上的心得，以及使用到的工具等。</p>
+        <div class=".article-gallery"><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>在windows10中，默认输入法为中文，但某些时候输入法莫名其妙地强制切换为英文，具体现象是：切换窗口，输入法就变成英文了，想输入中文还要手动切换回来，非常影响效率。<br><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409081748937.gif" title="问题预览" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409081748937.gif" alt="问题预览"></a></p>
+<h2 id="产生原因及解决思路"><a href="#产生原因及解决思路" class="headerlink" title="产生原因及解决思路"></a>产生原因及解决思路</h2><p>在出现该问题前，我曾因为Macig keyboard2 无法通过fn+功能键实现翻页、DEL 等操作而安装了来自Github开源驱动和键盘布局，重启后就导致输入法无法切换为中文。将布局文件删除后，可以切换中文了，但是就像我所描述的那样，切换窗口就会自动变为英文，<del>所以我猜测，安装键盘驱动或者布局文件会导致输入法某些状态被更改。</del></p>
+<p>因为系统在正常运行时的上一个操作是添加了布局文件（Keyboard Layouts），于是我找到相关注册表位置进行一番摸索，果然让我发现了异常。在<code>计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts</code>目录下存储着系统键盘布局表，而我在这里却没有发现简体中文（中国大陆）的身影，通过询问AI得知简体中文（中国大陆）的键为<code>00000804</code>，而布局文件中并没有（我这里有是因为后截的图hhh），相关注册表网络上也寻找不到，于是找到好友复制了一份，导入后恢复了正常。</p>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082044968.png" title="Keyboard Layouts注册表" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082044968.png" alt="Keyboard Layouts注册表"></a></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果和我一样都是缺失<code>00000804</code>，请复制下面的代码，保存为<code>00000804.reg</code>，双击运行导入即可。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\00000804]</span><br><span class="line">"Layout Display Name"=hex(7):40,00,25,00,53,00,79,00,73,00,74,00,65,00,6d,00,\</span><br><span class="line">  52,00,6f,00,6f,00,74,00,25,00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,\</span><br><span class="line">  00,32,00,5c,00,69,00,6e,00,70,00,75,00,74,00,2e,00,64,00,6c,00,6c,00,2c,00,\</span><br><span class="line">  2d,00,35,00,30,00,37,00,32,00,00,00,00,00</span><br><span class="line">"Layout File"="KBDUS.DLL"</span><br><span class="line">"Layout Text"="Chinese (Simplified) - US Keyboard"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>现将<strong>Keyboards Layouts</strong>注册表文件分享出来，如果有类似情况，无论是否是简体中文，都可以参考该思路。</p>
+<blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1yTmRCOr2WcIGpuqIyN-3tg?pwd=cmc5">Keyboard Layouts.reg</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082108048.gif" title="问题解决截图" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082108048.gif" alt="问题解决截图"></a></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这次的经历警示我：在运行陌生<strong>脚本</strong>时先打开查看源码，评估风险后，如果依旧要执行，一定要在执行前备份好可能受影响的文件，以防遭遇不测。</p>
 </div><script src="../../../js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
         var options1 = {
             selector: '.gallery-item'
@@ -190,7 +198,7 @@
     <div class="post-meta">
         <i>
         
-            <span>2024-09-06</span>
+            <span>2024-09-08</span>
             
                 <span>该篇文章被 Jingbin Lin</span>
             
@@ -198,8 +206,16 @@
                 <span>打上标签:
                     
                     
-                        <a href='/tags/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5/'>
-                            业余无线电
+                        <a href='/tags/windows/'>
+                            windows
+                        </a>
+                    
+                        <a href='/tags/%E6%95%99%E7%A8%8B/'>
+                            教程
+                        </a>
+                    
+                        <a href='/tags/%E8%BE%93%E5%85%A5%E6%B3%95/'>
+                            输入法
                         </a>
                     
                 </span>
@@ -208,8 +224,8 @@
                 <span>归为分类:
                     
                     
-                        <a href='/categories/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5/'>
-                            业余无线电
+                        <a href='/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/'>
+                            疑难杂症
                         </a>
                     
                 </span>
@@ -226,11 +242,9 @@
         
             <div class="post-footer-pre-next">
                 
-                    <span>上一篇：<a href='/p/7b932365/'>解决windows输入法强制为英文状态</a></span>
-                
 
                 
-                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/p/7a32b209/">Windows必备技能-注册表</a>
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/p/6f69128d/">业余无线电入坑记录</a>
                     </span>
                 
             </div>
