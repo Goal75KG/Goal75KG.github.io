@@ -1,10 +1,9 @@
 ---
 title: 基于Python的业余无线电证书查询方法的研究
-date: 2024-09-25 00:15:08
-tags: 
-  -业余无线电
-  -Python
+tags: '-业余无线电 -Python'
 categories: 业余无线电
+abbrlink: '60858e85'
+date: 2024-09-25 00:15:08
 ---
 ## 前言
 
@@ -84,6 +83,8 @@ POST请求区别于GET请求的是POST请求是带有请求体，而不是在HTT
 ```
 
 这段请求体是使用json格式化的，简单分析一下字段：`page_no`：页码、`page_size`：页面最多显示条数、`name`：姓名、`certificateNo`：证书编号、`idCarNumber`：身份证号
+
+#### 测试请求
 
 知道了请求体的内容以及格式，就可继续接下来的操作了。
 
