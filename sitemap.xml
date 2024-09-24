@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://isjingbin.cn/p/60858e85/</loc>
+    
+    <lastmod>2024-09-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://isjingbin.cn/p/6f69128d/</loc>
     
     <lastmod>2024-09-24</lastmod>
@@ -128,6 +137,13 @@
   
   <url>
     <loc>https://isjingbin.cn/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
+    <lastmod>2024-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://isjingbin.cn/tags/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5-Python/</loc>
     <lastmod>2024-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
