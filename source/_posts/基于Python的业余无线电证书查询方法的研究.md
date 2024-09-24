@@ -1,8 +1,6 @@
 ---
 title: 基于Python的业余无线电证书查询方法的研究
-tags: 
-    -业余无线电
-    -Python
+tags: [业余无线电,Python]
 categories: 业余无线电
 abbrlink: '60858e85'
 date: 2024-09-25 00:15:08
