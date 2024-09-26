@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
     <meta name="description" content="基于Python的业余无线电证书查询方法的研究" />
-    <meta name="hexo-theme-A4" content="v1.9.3" />
+    <meta name="hexo-theme-A4" content="v1.9.5" />
     <link rel="alternate icon" type="image/webp" href="/img/Peter.jpg">
     <title>Jingbin&#39;s Blog | 个人记录站</title>
 
@@ -54,13 +54,9 @@
     
 
     
-        
-<link rel="stylesheet" href="/css/returnToLastPage.css">
-
-    
     
    
-<link rel="stylesheet" href="/css/lightgallery.min.css">
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
 
 
 <meta name="generator" content="Hexo 7.3.0">
@@ -160,7 +156,7 @@
     
         
             
-                <div class="post-main-title">
+                <div class="post-main-title" style="text-align: center;">
                     基于Python的业余无线电证书查询方法的研究
                 </div>
             
@@ -205,12 +201,7 @@
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中文姓名正则表达式</span></span><br><span class="line">chinese_name_pattern = <span class="string">r'^[\u4E00-\u9FA5]{2,4}$'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 身份证正则表达式</span></span><br><span class="line">_IDRe18 = re.<span class="built_in">compile</span>(<span class="string">r'^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$'</span>)</span><br><span class="line">_IDre15 = re.<span class="built_in">compile</span>(<span class="string">r'^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}$'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入提示</span></span><br><span class="line">page_no = <span class="number">1</span></span><br><span class="line">page_size = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">"请输入姓名："</span>)</span><br><span class="line">    <span class="keyword">if</span> re.<span class="keyword">match</span>(chinese_name_pattern, name):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"姓名应为2-4位中文，请重新输入。"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    certificateNo = <span class="built_in">input</span>(<span class="string">"请输入证书编号（选填）："</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> certificateNo:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    pattern = <span class="string">r'^[ABC]\d{9}$'</span></span><br><span class="line">    <span class="keyword">if</span> re.<span class="keyword">match</span>(pattern, certificateNo):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"证书编号格式应为首字母 ABC 加 9 位数字，请重新输入。"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    idCarNumber = <span class="built_in">input</span>(<span class="string">"请输入身份证号："</span>)</span><br><span class="line">    <span class="keyword">if</span> _IDRe18.<span class="keyword">match</span>(idCarNumber) <span class="keyword">or</span> _IDre15.<span class="keyword">match</span>(idCarNumber):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"身份证号格式不正确，请重新输入。"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># API 请求</span></span><br><span class="line">url = <span class="string">"http://82.157.138.16:8091/CRAC/app/businessSupport/cracOperationCert/getOperCertByParamWeb"</span></span><br><span class="line">headers = {</span><br><span class="line">    <span class="string">"Accept"</span>: <span class="string">"*/*"</span>,</span><br><span class="line">    <span class="string">"Accept-Encoding"</span>: <span class="string">"gzip, deflate"</span>,</span><br><span class="line">    <span class="string">"Accept-Language"</span>: <span class="string">"zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6"</span>,</span><br><span class="line">    <span class="string">"Connection"</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/json; chartset=UTF-8"</span>,</span><br><span class="line">    <span class="string">"Cookie"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"Host"</span>: <span class="string">"82.157.138.16:8091"</span>,</span><br><span class="line">    <span class="string">"Origin"</span>: <span class="string">"http://82.157.138.16:8091"</span>,</span><br><span class="line">    <span class="string">"Referer"</span>: <span class="string">"http://82.157.138.16:8091/CRAC/crac/pages/list_cert.html"</span>,</span><br><span class="line">    <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0"</span>,</span><br><span class="line">    <span class="string">"X-Requested-With"</span>: <span class="string">"XMLHttpRequest"</span>,</span><br><span class="line">    <span class="string">"mm"</span>: <span class="string">"null"</span>,</span><br><span class="line">    <span class="string">"qm"</span>: <span class="string">"null"</span></span><br><span class="line">}</span><br><span class="line">data = {</span><br><span class="line">    <span class="string">"req"</span>: {</span><br><span class="line">        <span class="string">"page_no"</span>: page_no,</span><br><span class="line">        <span class="string">"page_size"</span>: page_size,</span><br><span class="line">        <span class="string">"name"</span>: name,</span><br><span class="line">        <span class="string">"certificateNo"</span>: certificateNo,</span><br><span class="line">        <span class="string">"idCarNumber"</span>: idCarNumber</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response = requests.post(url, headers=headers, json=data)</span><br><span class="line">    response.raise_for_status()  <span class="comment"># 检查请求是否成功</span></span><br><span class="line"><span class="keyword">except</span> requests.exceptions.RequestException <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"请求发送时发生错误：<span class="subst">{e}</span>"</span>)</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    prc_list = response.json()[<span class="string">'res'</span>][<span class="string">'prcList'</span>]</span><br><span class="line"><span class="keyword">except</span> json.JSONDecodeError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"响应数据不是有效的 JSON 格式"</span>)</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> prc_list:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"未找到相关证书信息"</span>)</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取有用信息并格式化输出</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> prc_list:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"身份 ID: <span class="subst">{item.get(<span class="string">'id'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"姓名: <span class="subst">{item.get(<span class="string">'name'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"性别: <span class="subst">{item.get(<span class="string">'sex'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"操作类别: <span class="subst">{item.get(<span class="string">'type'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"证书编号: <span class="subst">{item.get(<span class="string">'certificateNo'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"通过日期: <span class="subst">{item.get(<span class="string">'passDate'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"通过地点: <span class="subst">{item.get(<span class="string">'passAddr'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"核发日期: <span class="subst">{item.get(<span class="string">'issueDate'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"核发机构: <span class="subst">{item.get(<span class="string">'addr'</span>, <span class="string">''</span>)}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"---------------------------"</span>)</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>通过这次分析，我发现该查询接口并没有做加密措施，调用起来很容易，所以该社区很有可能自行利用该接口，二次开发完成证书验证的。这一次的分析让我重温了从判断页面类型，模拟网络请求，到分析网络请求并进行调用测试的过程，感觉不错。<br>希望未来能与更多的爱好者们相识，73！再会！</p>
-</div><script src="../../../js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
-        var options1 = {
-            selector: '.gallery-item'
-        };
-        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1);
-        }</script>
+</div>
     </div>
 
     <div class="post-meta">
@@ -271,8 +262,7 @@
     <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        说点什么吧~
-        <!-- 以上  -->
+        以上 
     </div>
     
         
@@ -335,6 +325,8 @@
     
             <span>金钱是第一生产力</span>
             
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
     
 </div>
 
@@ -372,10 +364,51 @@
 
 
 
-<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
 
 
 
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
                 </div>
             
             
@@ -386,13 +419,6 @@
                     </svg>
                 </div>
             
-            
-                <!-- 返回的按钮-->  
-                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
-                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-                    </svg>
-                </div>
             
     </body>
 </html>

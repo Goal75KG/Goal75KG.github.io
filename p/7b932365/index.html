@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
     <meta name="description" content="解决windows输入法强制为英文状态" />
-    <meta name="hexo-theme-A4" content="v1.9.3" />
+    <meta name="hexo-theme-A4" content="v1.9.5" />
     <link rel="alternate icon" type="image/webp" href="/img/Peter.jpg">
     <title>Jingbin&#39;s Blog | 个人记录站</title>
 
@@ -54,13 +54,9 @@
     
 
     
-        
-<link rel="stylesheet" href="/css/returnToLastPage.css">
-
-    
     
    
-<link rel="stylesheet" href="/css/lightgallery.min.css">
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
 
 
 <meta name="generator" content="Hexo 7.3.0">
@@ -160,7 +156,7 @@
     
         
             
-                <div class="post-main-title">
+                <div class="post-main-title" style="text-align: center;">
                     解决windows输入法强制为英文状态
                 </div>
             
@@ -187,12 +183,7 @@
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082108048.gif" title="问题解决截图" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082108048.gif" alt="问题解决截图"></a></p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这次的经历警示我：在运行陌生<strong>脚本</strong>时先打开查看源码，评估风险后，如果依旧要执行，一定要在执行前备份好可能受影响的文件，以防遭遇不测。</p>
-</div><script src="../../../js/lightgallery.min.js"></script><script>if("undefined"!=typeof lightGallery) {
-        var options1 = {
-            selector: '.gallery-item'
-        };
-        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1);
-        }</script>
+</div>
     </div>
 
     <div class="post-meta">
@@ -259,8 +250,7 @@
     <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        说点什么吧~
-        <!-- 以上  -->
+        以上 
     </div>
     
         
@@ -323,6 +313,8 @@
     
             <span>金钱是第一生产力</span>
             
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
     
 </div>
 
@@ -360,10 +352,51 @@
 
 
 
-<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
 
 
 
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
                 </div>
             
             
@@ -374,13 +407,6 @@
                     </svg>
                 </div>
             
-            
-                <!-- 返回的按钮-->  
-                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
-                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-                    </svg>
-                </div>
             
     </body>
 </html>
