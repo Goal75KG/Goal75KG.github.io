@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="基于C++的业余无线电呼号查询工具" />
+    <meta name="hexo-theme-A4" content="v1.9.6" />
+    <link rel="alternate icon" type="image/webp" href="/img/Peter.jpg">
+    <title>Jingbin&#39;s Blog | 个人记录站</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+            
+<link rel="stylesheet" href="/css/waline.css">
+
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+    
+    
+
+    
+    
+
+
+
+    
+
+    
+    
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        <script>
+            const options = {
+                bottom: '40px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '42px', // default: 'unset'
+                time: '0.3s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: true, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/Peter.jpg" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Jingbin&#39;s Blog</a> 
+            <span class="description">Jingbin的技术博客</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    基于C++的业余无线电呼号查询工具
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2024-09-30</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：2.1k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：9分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="post-toc-text">功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="post-toc-text">示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="post-toc-text">实现过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="post-toc-text">源代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B0%BE%E5%A3%B0"><span class="post-toc-text">尾声</span></a></li></ol>
+            
+        
+        <div class=".article-gallery"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自从接触业余无线电后，就会对见到的每个呼号都产生好奇心，总想查一查这些HAM呼号的QTH。网络上的QTH查询工具需要呼号所有者自行上传位置，而没上传的自然就查不到，于是萌生了自己写一个查询工具的想法，查到具体省份即可。</p>
+<p>该工具依据<em>业余无线电台呼号管理办法</em>，基于C++所写，为初学练手项目，如有不足，恳请批评指正：<a target="_blank" rel="noopener" href="https://github.com/Goal75KG/CallSignQuery">Goal75KG/CallSignQuery</a>。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>根据呼号解析出国家信息（暂时只能解析中国）</li>
+<li>查询电台种类（个人业余电台、信标台、卫星电台等）</li>
+<li>确定呼号所属省份</li>
+<li>处理特殊情况的电台种类</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>输入呼号：<code>BA8MAA</code></p>
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">呼号: BA8MAA</span><br><span class="line">国家: 中国</span><br><span class="line">电台种类: 个人业余电台（一级）</span><br><span class="line">省份: 贵州</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><p><strong>映射呼号每部分规则</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加载国家前缀规则</span></span><br><span class="line"><span class="function">std::map&lt;std::string, std::string&gt; <span class="title">loadCountryPrefixRules</span><span class="params">()</span> </span>{</span><br><span class="line">    std::map&lt;std::string, std::string&gt; countryPrefixRules;</span><br><span class="line">    countryPrefixRules[<span class="string">"B"</span>] = <span class="string">"中国"</span>;</span><br><span class="line">    <span class="keyword">return</span> countryPrefixRules;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 加载电台种类规则</span></span><br><span class="line"><span class="function">std::map&lt;<span class="type">char</span>, std::string&gt; <span class="title">loadStationTypeRules</span><span class="params">()</span> </span>{</span><br><span class="line">    std::map&lt;<span class="type">char</span>, std::string&gt; stationTypeRules;</span><br><span class="line">    stationTypeRules[<span class="string">'A'</span>] = <span class="string">"个人业余电台（一级）"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'D'</span>] = <span class="string">"个人业余电台（二级）"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'E'</span>] = <span class="string">"个人业余电台（二级）"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'G'</span>] = <span class="string">"个人业余电台（三级、四级、五级（收信台））"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'H'</span>] = <span class="string">"个人业余电台（三级、四级、五级（收信台））"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'I'</span>] = <span class="string">"个人业余电台（三级、四级、五级（收信台））"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'J'</span>] = <span class="string">"业余信标台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'L'</span>] = <span class="string">"外籍及香港、澳门、台湾地区人员在中国内地设置的业余电台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'R'</span>] = <span class="string">"业余中继台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'T'</span>] = <span class="string">"特设业余电台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'Y'</span>] = <span class="string">"集体业余电台"</span>;</span><br><span class="line">    <span class="keyword">return</span> stationTypeRules;</span><br><span class="line">}</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 加载大区和省份范围规则</span></span><br><span class="line">std::map&lt;<span class="type">char</span>, std::map&lt;std::string, std::pair&lt;std::string, std::string&gt; &gt; &gt; <span class="built_in">loadRegionProvinceRules</span>() {</span><br><span class="line">    std::map&lt;<span class="type">char</span>, std::map&lt;std::string, std::pair&lt;std::string, std::string&gt; &gt; &gt; regionProvinceRules;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第1区：北京</span></span><br><span class="line">    regionProvinceRules[<span class="string">'1'</span>] = {</span><br><span class="line">        {<span class="string">"北京"</span>, {<span class="string">"AA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第2区：黑龙江、辽宁、吉林</span></span><br><span class="line">    regionProvinceRules[<span class="string">'2'</span>] = {</span><br><span class="line">        {<span class="string">"黑龙江"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"吉林"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"辽宁"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第3区：河北、内蒙古、山西、天津</span></span><br><span class="line">    regionProvinceRules[<span class="string">'3'</span>] = {</span><br><span class="line">        {<span class="string">"天津"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"内蒙古"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}},</span><br><span class="line">        {<span class="string">"河北"</span>, {<span class="string">"MA"</span>, <span class="string">"RZZ"</span>}},</span><br><span class="line">        {<span class="string">"山西"</span>, {<span class="string">"SA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第4区：山东、江苏、上海</span></span><br><span class="line">    regionProvinceRules[<span class="string">'4'</span>] = {</span><br><span class="line">        {<span class="string">"上海"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"山东"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"江苏"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第5区：浙江、江西、福建</span></span><br><span class="line">    regionProvinceRules[<span class="string">'5'</span>] = {</span><br><span class="line">        {<span class="string">"浙江"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"江西"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"福建"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第6区：河南、湖北、安徽</span></span><br><span class="line">    regionProvinceRules[<span class="string">'6'</span>] = {</span><br><span class="line">        {<span class="string">"安徽"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"河南"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"湖北"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第7区：湖南、广东、广西、海南</span></span><br><span class="line">    regionProvinceRules[<span class="string">'7'</span>] = {</span><br><span class="line">        {<span class="string">"湖南"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"广东"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"广西"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}},</span><br><span class="line">        {<span class="string">"海南"</span>, {<span class="string">"YA"</span>, <span class="string">"ZZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第8区：四川、贵州、云南、重庆</span></span><br><span class="line">    regionProvinceRules[<span class="string">'8'</span>] = {</span><br><span class="line">        {<span class="string">"四川"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"重庆"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}},</span><br><span class="line">        {<span class="string">"贵州"</span>, {<span class="string">"MA"</span>, <span class="string">"RZZ"</span>}},</span><br><span class="line">        {<span class="string">"云南"</span>, {<span class="string">"SA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第9区：陕西、甘肃、宁夏、青海</span></span><br><span class="line">    regionProvinceRules[<span class="string">'9'</span>] = {</span><br><span class="line">        {<span class="string">"陕西"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"甘肃"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}},</span><br><span class="line">        {<span class="string">"宁夏"</span>, {<span class="string">"MA"</span>, <span class="string">"RZZ"</span>}},</span><br><span class="line">        {<span class="string">"青海"</span>, {<span class="string">"SA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第0区：新疆、西藏</span></span><br><span class="line">    regionProvinceRules[<span class="string">'0'</span>] = {</span><br><span class="line">        {<span class="string">"新疆"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"西藏"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> regionProvinceRules;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>判断对应后缀是否在范围内</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isWithinRange</span><span class="params">(<span class="type">const</span> std::string &amp;suffix, <span class="type">const</span> std::string &amp;rangeStart, <span class="type">const</span> std::string &amp;rangeEnd)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> suffix &gt;= rangeStart &amp;&amp; suffix &lt;= rangeEnd;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>呼号匹配</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">queryCallSign</span><span class="params">(<span class="type">const</span> std::string &amp;callSign)</span> </span>{</span><br><span class="line">    <span class="comment">// 加载各类规则</span></span><br><span class="line">    <span class="keyword">auto</span> countryRules = <span class="built_in">loadCountryPrefixRules</span>();</span><br><span class="line">    <span class="keyword">auto</span> stationTypeRules = <span class="built_in">loadStationTypeRules</span>();</span><br><span class="line">    <span class="keyword">auto</span> regionProvinceRules = <span class="built_in">loadRegionProvinceRules</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 确保呼号至少有5位</span></span><br><span class="line">    <span class="keyword">if</span> (callSign.<span class="built_in">length</span>() &lt; <span class="number">5</span>) {</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"呼号格式不正确"</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析国家前缀</span></span><br><span class="line">    std::string country = countryRules[callSign.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">1</span>)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析电台种类</span></span><br><span class="line">    <span class="type">char</span> stationType = callSign[<span class="number">1</span>];</span><br><span class="line">    std::string station = stationTypeRules[stationType];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析地区分区</span></span><br><span class="line">    <span class="type">char</span> region = callSign[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析后缀</span></span><br><span class="line">    std::string suffix = callSign.<span class="built_in">substr</span>(<span class="number">3</span>, <span class="number">2</span>); <span class="comment">// 假设后缀长度为2位</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找该地区的省份范围</span></span><br><span class="line">    std::string provinceName = <span class="string">"未知省份"</span>;</span><br><span class="line">    <span class="keyword">if</span> (regionProvinceRules.<span class="built_in">find</span>(region) != regionProvinceRules.<span class="built_in">end</span>()) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;province: regionProvinceRules[region]) {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isWithinRange</span>(suffix, province.second.first, province.second.second)) {</span><br><span class="line">                provinceName = province.first;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>处理特殊情况（业余信标台、卫星业余电台、特设业余电台）</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (stationType == <span class="string">'J'</span>) {</span><br><span class="line">        <span class="type">char</span> suffix1 = callSign[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">if</span> (suffix1 == <span class="string">'H'</span> || suffix1 == <span class="string">'V'</span> || suffix1 == <span class="string">'U'</span>) {</span><br><span class="line">            station = <span class="string">"HF、VHF、UHV频段信标台"</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (suffix1 == <span class="string">'D'</span>) {</span><br><span class="line">            station = <span class="string">"业余无线电测向专用信标台"</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (suffix1 == <span class="string">'S'</span> &amp;&amp; region == <span class="string">'1'</span>) {</span><br><span class="line">            station = <span class="string">"卫星业余电台"</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (suffix1 == <span class="string">'T'</span>) {</span><br><span class="line">            station = <span class="string">"特设业余电台"</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>结果输出</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (!country.<span class="built_in">empty</span>() &amp;&amp; !station.<span class="built_in">empty</span>() &amp;&amp; provinceName != <span class="string">"未知省份"</span>) {</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"呼号: "</span> &lt;&lt; callSign &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"国家: "</span> &lt;&lt; country &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"电台种类: "</span> &lt;&lt; station &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"省份: "</span> &lt;&lt; provinceName &lt;&lt; std::endl;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"未找到呼号对应的信息"</span> &lt;&lt; std::endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>主程序</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    std::string callSign;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"请输入要查询的呼号: "</span>;</span><br><span class="line">    std::cin &gt;&gt; callSign;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"\n查询结果如下:\n"</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询呼号信息</span></span><br><span class="line">    <span class="built_in">queryCallSign</span>(callSign);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载国家前缀规则</span></span><br><span class="line"><span class="function">std::map&lt;std::string, std::string&gt; <span class="title">loadCountryPrefixRules</span><span class="params">()</span> </span>{</span><br><span class="line">    std::map&lt;std::string, std::string&gt; countryPrefixRules;</span><br><span class="line">    countryPrefixRules[<span class="string">"B"</span>] = <span class="string">"中国"</span>;</span><br><span class="line">    <span class="keyword">return</span> countryPrefixRules;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载电台种类规则</span></span><br><span class="line"><span class="function">std::map&lt;<span class="type">char</span>, std::string&gt; <span class="title">loadStationTypeRules</span><span class="params">()</span> </span>{</span><br><span class="line">    std::map&lt;<span class="type">char</span>, std::string&gt; stationTypeRules;</span><br><span class="line">    stationTypeRules[<span class="string">'A'</span>] = <span class="string">"个人业余电台（一级）"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'D'</span>] = <span class="string">"个人业余电台（二级）"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'E'</span>] = <span class="string">"个人业余电台（二级）"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'G'</span>] = <span class="string">"个人业余电台（三级、四级、五级（收信台））"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'H'</span>] = <span class="string">"个人业余电台（三级、四级、五级（收信台））"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'I'</span>] = <span class="string">"个人业余电台（三级、四级、五级（收信台））"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'J'</span>] = <span class="string">"业余信标台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'L'</span>] = <span class="string">"外籍及香港、澳门、台湾地区人员在中国内地设置的业余电台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'R'</span>] = <span class="string">"业余中继台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'T'</span>] = <span class="string">"特设业余电台"</span>;</span><br><span class="line">    stationTypeRules[<span class="string">'Y'</span>] = <span class="string">"集体业余电台"</span>;</span><br><span class="line">    <span class="keyword">return</span> stationTypeRules;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载大区和省份范围规则</span></span><br><span class="line">std::map&lt;<span class="type">char</span>, std::map&lt;std::string, std::pair&lt;std::string, std::string&gt; &gt; &gt; <span class="built_in">loadRegionProvinceRules</span>() {</span><br><span class="line">    std::map&lt;<span class="type">char</span>, std::map&lt;std::string, std::pair&lt;std::string, std::string&gt; &gt; &gt; regionProvinceRules;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第1区：北京</span></span><br><span class="line">    regionProvinceRules[<span class="string">'1'</span>] = {</span><br><span class="line">        {<span class="string">"北京"</span>, {<span class="string">"AA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第2区：黑龙江、辽宁、吉林</span></span><br><span class="line">    regionProvinceRules[<span class="string">'2'</span>] = {</span><br><span class="line">        {<span class="string">"黑龙江"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"吉林"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"辽宁"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第3区：河北、内蒙古、山西、天津</span></span><br><span class="line">    regionProvinceRules[<span class="string">'3'</span>] = {</span><br><span class="line">        {<span class="string">"天津"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"内蒙古"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}},</span><br><span class="line">        {<span class="string">"河北"</span>, {<span class="string">"MA"</span>, <span class="string">"RZZ"</span>}},</span><br><span class="line">        {<span class="string">"山西"</span>, {<span class="string">"SA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第4区：山东、江苏、上海</span></span><br><span class="line">    regionProvinceRules[<span class="string">'4'</span>] = {</span><br><span class="line">        {<span class="string">"上海"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"山东"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"江苏"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第5区：浙江、江西、福建</span></span><br><span class="line">    regionProvinceRules[<span class="string">'5'</span>] = {</span><br><span class="line">        {<span class="string">"浙江"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"江西"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"福建"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第6区：河南、湖北、安徽</span></span><br><span class="line">    regionProvinceRules[<span class="string">'6'</span>] = {</span><br><span class="line">        {<span class="string">"安徽"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"河南"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"湖北"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第7区：湖南、广东、广西、海南</span></span><br><span class="line">    regionProvinceRules[<span class="string">'7'</span>] = {</span><br><span class="line">        {<span class="string">"湖南"</span>, {<span class="string">"AA"</span>, <span class="string">"HZZ"</span>}},</span><br><span class="line">        {<span class="string">"广东"</span>, {<span class="string">"IA"</span>, <span class="string">"PZZ"</span>}},</span><br><span class="line">        {<span class="string">"广西"</span>, {<span class="string">"QA"</span>, <span class="string">"XZZ"</span>}},</span><br><span class="line">        {<span class="string">"海南"</span>, {<span class="string">"YA"</span>, <span class="string">"ZZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第8区：四川、贵州、云南、重庆</span></span><br><span class="line">    regionProvinceRules[<span class="string">'8'</span>] = {</span><br><span class="line">        {<span class="string">"四川"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"重庆"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}},</span><br><span class="line">        {<span class="string">"贵州"</span>, {<span class="string">"MA"</span>, <span class="string">"RZZ"</span>}},</span><br><span class="line">        {<span class="string">"云南"</span>, {<span class="string">"SA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第9区：陕西、甘肃、宁夏、青海</span></span><br><span class="line">    regionProvinceRules[<span class="string">'9'</span>] = {</span><br><span class="line">        {<span class="string">"陕西"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"甘肃"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}},</span><br><span class="line">        {<span class="string">"宁夏"</span>, {<span class="string">"MA"</span>, <span class="string">"RZZ"</span>}},</span><br><span class="line">        {<span class="string">"青海"</span>, {<span class="string">"SA"</span>, <span class="string">"XZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第0区：新疆、西藏</span></span><br><span class="line">    regionProvinceRules[<span class="string">'0'</span>] = {</span><br><span class="line">        {<span class="string">"新疆"</span>, {<span class="string">"AA"</span>, <span class="string">"FZZ"</span>}},</span><br><span class="line">        {<span class="string">"西藏"</span>, {<span class="string">"GA"</span>, <span class="string">"LZZ"</span>}}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> regionProvinceRules;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断后缀是否在范围内</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isWithinRange</span><span class="params">(<span class="type">const</span> std::string &amp;suffix, <span class="type">const</span> std::string &amp;rangeStart, <span class="type">const</span> std::string &amp;rangeEnd)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> suffix &gt;= rangeStart &amp;&amp; suffix &lt;= rangeEnd;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询呼号</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">queryCallSign</span><span class="params">(<span class="type">const</span> std::string &amp;callSign)</span> </span>{</span><br><span class="line">    <span class="comment">// 加载各类规则</span></span><br><span class="line">    <span class="keyword">auto</span> countryRules = <span class="built_in">loadCountryPrefixRules</span>();</span><br><span class="line">    <span class="keyword">auto</span> stationTypeRules = <span class="built_in">loadStationTypeRules</span>();</span><br><span class="line">    <span class="keyword">auto</span> regionProvinceRules = <span class="built_in">loadRegionProvinceRules</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 确保呼号至少有5位</span></span><br><span class="line">    <span class="keyword">if</span> (callSign.<span class="built_in">length</span>() &lt; <span class="number">5</span>) {</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"呼号格式不正确"</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析国家前缀</span></span><br><span class="line">    std::string country = countryRules[callSign.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">1</span>)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析电台种类</span></span><br><span class="line">    <span class="type">char</span> stationType = callSign[<span class="number">1</span>];</span><br><span class="line">    std::string station = stationTypeRules[stationType];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析地区分区</span></span><br><span class="line">    <span class="type">char</span> region = callSign[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析后缀</span></span><br><span class="line">    std::string suffix = callSign.<span class="built_in">substr</span>(<span class="number">3</span>, <span class="number">2</span>); <span class="comment">// 假设后缀长度为2位</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找该地区的省份范围</span></span><br><span class="line">    std::string provinceName = <span class="string">"未知省份"</span>;</span><br><span class="line">    <span class="keyword">if</span> (regionProvinceRules.<span class="built_in">find</span>(region) != regionProvinceRules.<span class="built_in">end</span>()) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;province: regionProvinceRules[region]) {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isWithinRange</span>(suffix, province.second.first, province.second.second)) {</span><br><span class="line">                provinceName = province.first;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 处理特殊情况（业余信标台、卫星业余电台、特设业余电台）</span></span><br><span class="line">    <span class="keyword">if</span> (stationType == <span class="string">'J'</span>) {</span><br><span class="line">        <span class="type">char</span> suffix1 = callSign[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">if</span> (suffix1 == <span class="string">'H'</span> || suffix1 == <span class="string">'V'</span> || suffix1 == <span class="string">'U'</span>) {</span><br><span class="line">            station = <span class="string">"HF、VHF、UHV频段信标台"</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (suffix1 == <span class="string">'D'</span>) {</span><br><span class="line">            station = <span class="string">"业余无线电测向专用信标台"</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (suffix1 == <span class="string">'S'</span> &amp;&amp; region == <span class="string">'1'</span>) {</span><br><span class="line">            station = <span class="string">"卫星业余电台"</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (suffix1 == <span class="string">'T'</span>) {</span><br><span class="line">            station = <span class="string">"特设业余电台"</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 输出结果</span></span><br><span class="line">    <span class="keyword">if</span> (!country.<span class="built_in">empty</span>() &amp;&amp; !station.<span class="built_in">empty</span>() &amp;&amp; provinceName != <span class="string">"未知省份"</span>) {</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"呼号: "</span> &lt;&lt; callSign &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"国家: "</span> &lt;&lt; country &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"电台种类: "</span> &lt;&lt; station &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"省份: "</span> &lt;&lt; provinceName &lt;&lt; std::endl;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        std::cout &lt;&lt; <span class="string">"未找到呼号对应的信息"</span> &lt;&lt; std::endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    std::string callSign;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"请输入要查询的呼号: "</span>;</span><br><span class="line">    std::cin &gt;&gt; callSign;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"\n查询结果如下:\n"</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询呼号信息</span></span><br><span class="line">    <span class="built_in">queryCallSign</span>(callSign);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p><strong>后续计划：</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 支持全球呼号</li>
+<li><input disabled="" type="checkbox"> 添加GUI</li>
+</ul>
+<p>有更多想法？欢迎讨论👏</p>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-09-30</span>
+            
+                <span>该篇文章被 Jingbin Lin</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5/'>
+                            业余无线电
+                        </a>
+                    
+                        <a href='/tags/C/'>
+                            C++
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5/'>
+                            业余无线电
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/p/60858e85/">基于Python的业余无线电证书查询方法的研究</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+         
+    </div>
+    
+        
+
+    <div id="waline"></div>
+    <script type="module"  >
+        import { init } from 'https://npm.elemecdn.com/hexo-theme-a4@latest/source/js/waline.mjs'; 
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://vercel.isjingbin.cn/',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+                search: false, // 禁止表情包搜索
+                reaction: false, // 对文章打分
+                pageview: false, // 浏览量统计
+                comment: false, // 评论数统计
+
+                locale: {
+                    placeholder: '留下你的评论吧。', 
+                    sofa: ''
+                },
+            });
+            
+        }
+        window.addEventListener('DOMContentLoaded', loadWaline);
+    </script>
+
+
+
+    
+    
+    
+    </div>
+
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+             
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>金钱是第一生产力</span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+    </body>
+</html>
