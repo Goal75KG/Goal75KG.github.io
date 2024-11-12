@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="利用Cloudflare Workers部署挪车页面" />
+    <meta name="hexo-theme-A4" content="v1.9.6" />
+    <link rel="alternate icon" type="image/webp" href="/img/Peter.jpg">
+    <title>Jingbin&#39;s Blog | 个人记录站</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+            
+<link rel="stylesheet" href="/css/waline.css">
+
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+    
+    
+
+    
+    
+
+
+
+    
+
+    
+    
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        <script>
+            const options = {
+                bottom: '40px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '42px', // default: 'unset'
+                time: '0.3s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: true, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/Peter.jpg" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Jingbin&#39;s Blog</a> 
+            <span class="description">Jingbin的技术博客</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    利用Cloudflare Workers部署挪车页面
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2024-11-12</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：1.2k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：5分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="post-toc-text">前期准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="post-toc-text">部署流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WxPuhser"><span class="post-toc-text">WxPuhser</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cloudflare-Workers"><span class="post-toc-text">Cloudflare Workers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%80%89%E5%81%9A"><span class="post-toc-text">选做</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%BD%AC%E6%8D%A2"><span class="post-toc-text">二维码转换</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%86%99%E5%9C%A8%E7%BB%93%E5%B0%BE"><span class="post-toc-text">写在结尾</span></a></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>论坛中刷到有人利用Cloudflare Workers部署挪车页面，看到有人不会部署，遂写此文，分享一下如何部署到Cloudflare Workers并绑定域名。</p>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><ul>
+<li>已经托管到Cloudflare的域名一个</li>
+<li>挪车源代码</li>
+<li>WXPusher的<code>AppToken</code>、<code>UIDs</code></li>
+</ul>
+<p>若未注册Cloudflare，未托管域名到Cloudflare，请移步完成上述操作后再阅读本教程。</p>
+<blockquote>
+<p>提供一个Cloudflare托管阿里云域名的教程（仅供参考）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhyl8157121/article/details/100551592">https://blog.csdn.net/zhyl8157121/article/details/100551592</a></p>
+</blockquote>
+<h1 id="部署流程"><a href="#部署流程" class="headerlink" title="部署流程"></a>部署流程</h1><h2 id="WxPuhser"><a href="#WxPuhser" class="headerlink" title="WxPuhser"></a>WxPuhser</h2><ol>
+<li>访问<a target="_blank" rel="noopener" href="https://wxpusher.zjiecode.com/">WxPusher官网</a>，微信扫码登录</li>
+<li>单击「应用管理」，「应用信息」，应用名字填写<code>movecar</code>，联系方式填写手机号，推送内容随便写，这里填写<code>挪车</code></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121728012.png" title="image-20241112172836932" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121728012.png" alt="image-20241112172836932"></a></p>
+<ol start="3">
+<li>单击左侧「appToken」，未创建应用可能显示创建<code>appToken</code>等字样，创建后这里仅显示<code>重置appToken</code>，创建后记录下<code>AppToken</code></li>
+<li>单击左侧「用户管理」、「用户列表」，记录下个人UID</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121731074.png" title="image-20241112173103996" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121731074.png" alt="image-20241112173103996"></a></p>
+<h2 id="Cloudflare-Workers"><a href="#Cloudflare-Workers" class="headerlink" title="Cloudflare Workers"></a>Cloudflare Workers</h2><ol>
+<li>访问<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">Cloudlare</a>并登录。</li>
+<li>单击「Workers 和 Pages」，「创建」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121655382.png" title="image-20241112165513293" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121655382.png" alt="image-20241112165513293"></a></p>
+<ol start="3">
+<li><p>单击「创建Worker」<br>  <a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121656763.png" title="image-20241112165611685" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121656763.png" alt="image-20241112165611685"></a></p>
+</li>
+<li><p>为Worker命名，我这里填写movecar，单击页面下方「部署」</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121658790.png" title="image-20241112165805708" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121658790.png" alt="image-20241112165805708"></a></p>
+<ol start="5">
+<li>单击「编辑代码」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121659593.png" title="image-20241112165901508" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121659593.png" alt="image-20241112165901508"></a></p>
+<ol start="6">
+<li>将提前准备好的挪车页面代码粘贴进去，替换好<code>WXPusher</code>相关的值，单击右上地址栏右面的「预览」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121702656.png" title="image-20241112170239557" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121702656.png" alt="image-20241112170239557"></a></p>
+<p><strong>这里附上源代码：</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">'fetch'</span>, <span class="function"><span class="params">event</span> =&gt;</span> {</span><br><span class="line">  event.<span class="title function_">respondWith</span>(<span class="title function_">handleRequest</span>(event.<span class="property">request</span>))</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">handleRequest</span>(<span class="params">request</span>) {</span><br><span class="line">  <span class="keyword">const</span> phone = <span class="string">'18888888888'</span> <span class="comment">// 车主的手机号</span></span><br><span class="line">  <span class="keyword">const</span> wxpusherAppToken = <span class="string">'AT_vAxWMmK123UyvrBZszr123fWeGqW1e17'</span> <span class="comment">// Wxpusher APP Token</span></span><br><span class="line">  <span class="keyword">const</span> wxpusherUIDs = [<span class="string">'UID_x5dZ9X3P123VOE3ttPvfX12341xU'</span>] <span class="comment">// 车主的UIDs  , 'UID_d0pycYubbK6d766GNDo5deknw4i4'  </span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> htmlContent = <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="string">    &lt;html lang="zh-CN"&gt;</span></span><br><span class="line"><span class="string">      &lt;head&gt;</span></span><br><span class="line"><span class="string">        &lt;meta charset="UTF-8"&gt;</span></span><br><span class="line"><span class="string">        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></span><br><span class="line"><span class="string">        &lt;title&gt;通知车主挪车&lt;/title&gt;</span></span><br><span class="line"><span class="string">        &lt;style&gt;</span></span><br><span class="line"><span class="string">          * { box-sizing: border-box; margin: 0; padding: 0; }</span></span><br><span class="line"><span class="string">          body { font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; background: #f0f2f5; color: #333; }</span></span><br><span class="line"><span class="string">          .container { text-align: center; padding: 20px; width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: #fff; }</span></span><br><span class="line"><span class="string">          h1 { font-size: 24px; margin-bottom: 20px; color: #007bff; }</span></span><br><span class="line"><span class="string">          p { margin-bottom: 20px; font-size: 16px; color: #555; }</span></span><br><span class="line"><span class="string">          button { </span></span><br><span class="line"><span class="string">            width: 100%; </span></span><br><span class="line"><span class="string">            padding: 15px; </span></span><br><span class="line"><span class="string">            margin: 10px 0; </span></span><br><span class="line"><span class="string">            font-size: 18px; </span></span><br><span class="line"><span class="string">            font-weight: bold; </span></span><br><span class="line"><span class="string">            color: #fff; </span></span><br><span class="line"><span class="string">            border: none; </span></span><br><span class="line"><span class="string">            border-radius: 6px; </span></span><br><span class="line"><span class="string">            cursor: pointer; </span></span><br><span class="line"><span class="string">            transition: background 0.3s; </span></span><br><span class="line"><span class="string">          }</span></span><br><span class="line"><span class="string">          .notify-btn { background: #28a745; }</span></span><br><span class="line"><span class="string">          .notify-btn:hover { background: #218838; }</span></span><br><span class="line"><span class="string">          .call-btn { background: #17a2b8; }</span></span><br><span class="line"><span class="string">          .call-btn:hover { background: #138496; }</span></span><br><span class="line"><span class="string">        &lt;/style&gt;</span></span><br><span class="line"><span class="string">      &lt;/head&gt;</span></span><br><span class="line"><span class="string">      &lt;body&gt;</span></span><br><span class="line"><span class="string">        &lt;div class="container"&gt;</span></span><br><span class="line"><span class="string">          &lt;h1&gt;通知车主挪车&lt;/h1&gt;</span></span><br><span class="line"><span class="string">          &lt;p&gt;如需通知车主，请点击以下按钮&lt;/p&gt;</span></span><br><span class="line"><span class="string">          &lt;button class="notify-btn" onclick="notifyOwner()"&gt;通知车主挪车&lt;/button&gt;</span></span><br><span class="line"><span class="string">          &lt;button class="call-btn" onclick="callOwner()"&gt;拨打车主电话&lt;/button&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &lt;script&gt;</span></span><br><span class="line"><span class="string">          // 调用 Wxpusher API 来发送挪车通知</span></span><br><span class="line"><span class="string">          function notifyOwner() {</span></span><br><span class="line"><span class="string">            fetch("https://wxpusher.zjiecode.com/api/send/message", {</span></span><br><span class="line"><span class="string">              method: "POST",</span></span><br><span class="line"><span class="string">              headers: { "Content-Type": "application/json" },</span></span><br><span class="line"><span class="string">              body: JSON.stringify({</span></span><br><span class="line"><span class="string">                appToken: "<span class="subst">${wxpusherAppToken}</span>",</span></span><br><span class="line"><span class="string">                content: "您好，有人需要您挪车，请及时处理。",</span></span><br><span class="line"><span class="string">                contentType: 1,</span></span><br><span class="line"><span class="string">                uids: <span class="subst">${<span class="built_in">JSON</span>.stringify(wxpusherUIDs)}</span></span></span><br><span class="line"><span class="string">              })</span></span><br><span class="line"><span class="string">            })</span></span><br><span class="line"><span class="string">            .then(response =&gt; response.json())</span></span><br><span class="line"><span class="string">            .then(data =&gt; {</span></span><br><span class="line"><span class="string">              if (data.code === 1000) {</span></span><br><span class="line"><span class="string">                alert("通知已发送！");</span></span><br><span class="line"><span class="string">              } else {</span></span><br><span class="line"><span class="string">                alert("通知发送失败，请稍后重试。");</span></span><br><span class="line"><span class="string">              }</span></span><br><span class="line"><span class="string">            })</span></span><br><span class="line"><span class="string">            .catch(error =&gt; {</span></span><br><span class="line"><span class="string">              console.error("Error sending notification:", error);</span></span><br><span class="line"><span class="string">              alert("通知发送出错，请检查网络连接。");</span></span><br><span class="line"><span class="string">            });</span></span><br><span class="line"><span class="string">          }</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          // 拨打车主电话</span></span><br><span class="line"><span class="string">          function callOwner() {</span></span><br><span class="line"><span class="string">            window.location.href = "tel:<span class="subst">${phone}</span>";</span></span><br><span class="line"><span class="string">          }</span></span><br><span class="line"><span class="string">        &lt;/script&gt;</span></span><br><span class="line"><span class="string">      &lt;/body&gt;</span></span><br><span class="line"><span class="string">    &lt;/html&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(htmlContent, {</span><br><span class="line">    <span class="attr">headers</span>: { <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=UTF-8'</span> },</span><br><span class="line">  })</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ol start="7">
+<li>单击「通知车主挪车」，测试是否正常推送消息。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121703429.png" title="image-20241112170352346" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121703429.png" alt="image-20241112170352346"></a></p>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121704129.png" title="image-20241112170417085" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121704129.png" alt="image-20241112170417085"></a></p>
+<ol start="8">
+<li>单击右上「部署」，等待部署完成</li>
+<li>回到<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">Cloudflare主页</a>，单击托管的「域名」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121706005.png" title="image-20241112170626925" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121706005.png" alt="image-20241112170626925"></a></p>
+<ol start="10">
+<li>单击左侧「DNS」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121707474.png" title="image-20241112170740394" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121707474.png" alt="image-20241112170740394"></a></p>
+<ol start="11">
+<li>单击「添加记录」，类型选择<code>A</code>，名称随意（该名称为二级域名），IPV4随意填写，这里名称我填写<code>movecar</code>，IPV4填写<code>2.2.2.2</code>，填写完成单击「保存」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121710277.png" title="image-20241112171051194" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121710277.png" alt="image-20241112171051194"></a></p>
+<ol start="12">
+<li>单击左侧「Workers 路由」，「添加路由」，路由填写刚才设置的二级域名，Worker选择刚才创建的Worker，这里我的路由填写<code>movecar.**.com</code>，Worker选择<code>movecar</code>，单击「保存」</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121714210.png" title="image-20241112171439121" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121714210.png" alt="image-20241112171439121"></a></p>
+<ol start="13">
+<li>保存成功后，尝试访问设定好的域名，单击「通知车主挪车」，测试是否正常发送</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121716858.png" title="image-20241112171638756" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121716858.png" alt="image-20241112171638756"></a></p>
+<p><strong>以上就是利用Cloudflare Workers部署挪车页面的过程了，码字不易，请多多支持！</strong></p>
+<h2 id="选做"><a href="#选做" class="headerlink" title="选做"></a>选做</h2><ul>
+<li>加密JS代码防止别人获取你的推送Token等信息</li>
+</ul>
+<p>访问<a target="_blank" rel="noopener" href="https://www.lddgo.net/encrypt/js">在线JavaScript混淆加密</a>，将部署好的代码粘贴进来，单击「混淆」，将混淆后的代码粘贴回Cloudflare Workers代码编辑页面，单击「部署」即可</p>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121740873.png" title="image-20241112174047764" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121740873.png" alt="image-20241112174047764"></a></p>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121742155.png" title="image-20241112174214060" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121742155.png" alt="image-20241112174214060"></a></p>
+<h1 id="二维码转换"><a href="#二维码转换" class="headerlink" title="二维码转换"></a>二维码转换</h1><ol>
+<li>访问<a target="_blank" rel="noopener" href="https://console.cli.im/">草料二维码</a></li>
+<li>输入上面建好的页面网址，单击「生成」，注意：一定要加上https，否则微信有可能会拦截。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121754342.png" title="image-20241112175434242" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121754342.png" alt="image-20241112175434242"></a></p>
+<ol start="3">
+<li>还可以根据自己的喜好进行美化，例如我使用微信配色，让人一眼就知道要用微信扫码挪车。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121755061.png" title="image-20241112175526935" class="gallery-item" style="box-shadow: none;"> <img src="https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121755061.png" alt="image-20241112175526935"></a></p>
+<ol start="4">
+<li>打印粘贴就可以了。</li>
+</ol>
+<h1 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h1><p>对于该挪车程序，有一些个人思考：</p>
+<ol>
+<li>避免访问者无限制地发送，应该在发送次数/时间上做一个限制。</li>
+<li>添加邮件、钉钉、Server酱等常见推送方式，以满足多样化推送需求。</li>
+<li>使用Cloudflare Workers必须添加自定义域名，否则国内大概率访问失败。</li>
+</ol>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-11-12</span>
+            
+                <span>该篇文章被 Jingbin Lin</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/Cloudflare/'>
+                            Cloudflare
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E6%95%99%E7%A8%8B/'>
+                            教程
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/p/e468736f/">抚顺市业余无线电设台指南</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+         
+    </div>
+    
+        
+
+    <div id="waline"></div>
+    <script type="module"  >
+        import { init } from 'https://npm.elemecdn.com/hexo-theme-a4@latest/source/js/waline.mjs'; 
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://vercel.isjingbin.cn/',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+                search: false, // 禁止表情包搜索
+                reaction: false, // 对文章打分
+                pageview: false, // 浏览量统计
+                comment: false, // 评论数统计
+
+                locale: {
+                    placeholder: '留下你的评论吧。', 
+                    sofa: ''
+                },
+            });
+            
+        }
+        window.addEventListener('DOMContentLoaded', loadWaline);
+    </script>
+
+
+
+    
+    
+    
+    </div>
+
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+             
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>金钱是第一生产力</span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+    </body>
+</html>
