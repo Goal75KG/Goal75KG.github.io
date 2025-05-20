@@ -14,7 +14,7 @@ date: 2025-05-20 20:22:58
 
 # 问题原因分析
 
-![](https://files.mdnice.com/user/71387/342d6df1-bbdc-4db1-924a-7c6f569890f5.png)
+![](https://blogimage.12138.click/PicGo/1747746595611.png)
 在解决问题之前，先来看看为什么会出现这个问题。
 
 英伟达驱动程序安装时会进行兼容性检查，这个过程中会检查计算机上的显卡硬件ID是否存在于驱动安装程序的INF文件中，如果不存在则会报出**没有找到兼容的图形硬件**。
@@ -22,9 +22,9 @@ date: 2025-05-20 20:22:58
 # 驱动安装解决方案
 ## 查找硬件ID
 1. 右键**“此电脑” → 管理 → 设备管理器 → 显示适配器**，
-![](https://files.mdnice.com/user/71387/c5624db2-c979-4292-b2b3-0d93fdfe6a84.png)
+![](https://blogimage.12138.click/PicGo/1747747045134.png)
 2. 右键**独立显卡（这里为 3050 Ti） → 详细信息 → 属性下拉 → 硬件Id**
-![](https://files.mdnice.com/user/71387/c2708ecf-7c21-4984-b4bc-c61d4fdb3094.png)
+![](https://blogimage.12138.click/PicGo/1747747133631.png)
 
 我这里的硬件Id为：`PCI\VEN_10DE&DEV_25A0&SUBSYS_21371D72
 `
@@ -38,13 +38,13 @@ date: 2025-05-20 20:22:58
 ## 修改驱动安装程序INF文件
 ### 提取驱动程序安装文件
 1. 双击运行驱动安装程序，复制安装路径，单击OK，开始执行解压程序。
-![](https://files.mdnice.com/user/71387/08f806da-17fd-4cf0-8200-cbc6ee911d4c.png)
+![](https://blogimage.12138.click/PicGo/1747747164751.png)
 
 2. 等待驱动程序进行兼容性检查，检查失败后不要关闭窗口。 
-![](https://files.mdnice.com/user/71387/342d6df1-bbdc-4db1-924a-7c6f569890f5.png) 
+![](https://blogimage.12138.click/PicGo/1747747178443.png)  
 
 3. 复制步骤1的安装路径的所有文件到其他位置，依次进入`C:\NVIDIA\DisplayDriver\576.40\Win11_Win10-DCH_64\International\Display.Driver`，路径根据驱动程序的不同略有不同。
-![](https://files.mdnice.com/user/71387/8b4d957f-ce67-4589-a22d-619223571a2e.png)
+![](https://blogimage.12138.click/PicGo/1747747192115.png)
 
 ### 修改对应的INF文件
 1. 修改INF文件中的显卡硬件iD
