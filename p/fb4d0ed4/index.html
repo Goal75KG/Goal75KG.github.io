@@ -233,11 +233,11 @@
             
         
         <div class=".article-gallery"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近日，朋友的红米 G 游戏本 2022 更新显卡驱动时出现了问题，主要现象为：安装来自英伟达官网的驱动程序时提示“此图形驱动程序无法找到兼容的硬件”，本文将提供一种解决方案，彻底解决该问题。</p>
-<h1 id="问题原因分析"><a href="#问题原因分析" class="headerlink" title="问题原因分析"></a>问题原因分析</h1><p><a target="_blank" rel="noopener" href="https://files.mdnice.com/user/71387/342d6df1-bbdc-4db1-924a-7c6f569890f5.png" class="gallery-item" style="box-shadow: none;"> <img src="https://files.mdnice.com/user/71387/342d6df1-bbdc-4db1-924a-7c6f569890f5.png"></a><br>在解决问题之前，先来看看为什么会出现这个问题。</p>
+<h1 id="问题原因分析"><a href="#问题原因分析" class="headerlink" title="问题原因分析"></a>问题原因分析</h1><p><a target="_blank" rel="noopener" href="https://blogimage.12138.click/PicGo/1747746595611.png" class="gallery-item" style="box-shadow: none;"> <img src="https://blogimage.12138.click/PicGo/1747746595611.png"></a><br>在解决问题之前，先来看看为什么会出现这个问题。</p>
 <p>英伟达驱动程序安装时会进行兼容性检查，这个过程中会检查计算机上的显卡硬件ID是否存在于驱动安装程序的INF文件中，如果不存在则会报出<strong>没有找到兼容的图形硬件</strong>。</p>
 <h1 id="驱动安装解决方案"><a href="#驱动安装解决方案" class="headerlink" title="驱动安装解决方案"></a>驱动安装解决方案</h1><h2 id="查找硬件ID"><a href="#查找硬件ID" class="headerlink" title="查找硬件ID"></a>查找硬件ID</h2><ol>
-<li>右键<strong>“此电脑” → 管理 → 设备管理器 → 显示适配器</strong>，<br><a target="_blank" rel="noopener" href="https://files.mdnice.com/user/71387/c5624db2-c979-4292-b2b3-0d93fdfe6a84.png" class="gallery-item" style="box-shadow: none;"> <img src="https://files.mdnice.com/user/71387/c5624db2-c979-4292-b2b3-0d93fdfe6a84.png"></a></li>
-<li>右键<strong>独立显卡（这里为 3050 Ti） → 详细信息 → 属性下拉 → 硬件Id</strong><br><a target="_blank" rel="noopener" href="https://files.mdnice.com/user/71387/c2708ecf-7c21-4984-b4bc-c61d4fdb3094.png" class="gallery-item" style="box-shadow: none;"> <img src="https://files.mdnice.com/user/71387/c2708ecf-7c21-4984-b4bc-c61d4fdb3094.png"></a></li>
+<li>右键<strong>“此电脑” → 管理 → 设备管理器 → 显示适配器</strong>，<br><a target="_blank" rel="noopener" href="https://blogimage.12138.click/PicGo/1747747045134.png" class="gallery-item" style="box-shadow: none;"> <img src="https://blogimage.12138.click/PicGo/1747747045134.png"></a></li>
+<li>右键<strong>独立显卡（这里为 3050 Ti） → 详细信息 → 属性下拉 → 硬件Id</strong><br><a target="_blank" rel="noopener" href="https://blogimage.12138.click/PicGo/1747747133631.png" class="gallery-item" style="box-shadow: none;"> <img src="https://blogimage.12138.click/PicGo/1747747133631.png"></a></li>
 </ol>
 <p>我这里的硬件Id为：<code>PCI\VEN_10DE&amp;DEV_25A0&amp;SUBSYS_21371D72 </code></p>
 <ol start="3">
@@ -245,11 +245,11 @@
 </ol>
 <h2 id="下载驱动程序"><a href="#下载驱动程序" class="headerlink" title="下载驱动程序"></a>下载驱动程序</h2><p>访问英伟达驱动程序官方网站：<a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/drivers/">https://www.nvidia.cn/geforce/drivers/</a><br>下载对应的驱动程序。</p>
 <h2 id="修改驱动安装程序INF文件"><a href="#修改驱动安装程序INF文件" class="headerlink" title="修改驱动安装程序INF文件"></a>修改驱动安装程序INF文件</h2><h3 id="提取驱动程序安装文件"><a href="#提取驱动程序安装文件" class="headerlink" title="提取驱动程序安装文件"></a>提取驱动程序安装文件</h3><ol>
-<li><p>双击运行驱动安装程序，复制安装路径，单击OK，开始执行解压程序。<br><a target="_blank" rel="noopener" href="https://files.mdnice.com/user/71387/08f806da-17fd-4cf0-8200-cbc6ee911d4c.png" class="gallery-item" style="box-shadow: none;"> <img src="https://files.mdnice.com/user/71387/08f806da-17fd-4cf0-8200-cbc6ee911d4c.png"></a></p>
+<li><p>双击运行驱动安装程序，复制安装路径，单击OK，开始执行解压程序。<br><a target="_blank" rel="noopener" href="https://blogimage.12138.click/PicGo/1747747164751.png" class="gallery-item" style="box-shadow: none;"> <img src="https://blogimage.12138.click/PicGo/1747747164751.png"></a></p>
 </li>
-<li><p>等待驱动程序进行兼容性检查，检查失败后不要关闭窗口。<br><a target="_blank" rel="noopener" href="https://files.mdnice.com/user/71387/342d6df1-bbdc-4db1-924a-7c6f569890f5.png" class="gallery-item" style="box-shadow: none;"> <img src="https://files.mdnice.com/user/71387/342d6df1-bbdc-4db1-924a-7c6f569890f5.png"></a> </p>
+<li><p>等待驱动程序进行兼容性检查，检查失败后不要关闭窗口。<br><a target="_blank" rel="noopener" href="https://blogimage.12138.click/PicGo/1747747178443.png" class="gallery-item" style="box-shadow: none;"> <img src="https://blogimage.12138.click/PicGo/1747747178443.png"></a>  </p>
 </li>
-<li><p>复制步骤1的安装路径的所有文件到其他位置，依次进入<code>C:\NVIDIA\DisplayDriver\576.40\Win11_Win10-DCH_64\International\Display.Driver</code>，路径根据驱动程序的不同略有不同。<br><a target="_blank" rel="noopener" href="https://files.mdnice.com/user/71387/8b4d957f-ce67-4589-a22d-619223571a2e.png" class="gallery-item" style="box-shadow: none;"> <img src="https://files.mdnice.com/user/71387/8b4d957f-ce67-4589-a22d-619223571a2e.png"></a></p>
+<li><p>复制步骤1的安装路径的所有文件到其他位置，依次进入<code>C:\NVIDIA\DisplayDriver\576.40\Win11_Win10-DCH_64\International\Display.Driver</code>，路径根据驱动程序的不同略有不同。<br><a target="_blank" rel="noopener" href="https://blogimage.12138.click/PicGo/1747747192115.png" class="gallery-item" style="box-shadow: none;"> <img src="https://blogimage.12138.click/PicGo/1747747192115.png"></a></p>
 </li>
 </ol>
 <h3 id="修改对应的INF文件"><a href="#修改对应的INF文件" class="headerlink" title="修改对应的INF文件"></a>修改对应的INF文件</h3><ol>
