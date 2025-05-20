@@ -4,18 +4,20 @@
 # 3. 执行命令：hexo new page index 生成首页；执行命令：hexo new page list 生成列表页面；
 # 4. 执行命令：hexo clean && hexo g && hexo s 直接查看页面效果
 menu:
-    首页: /  #需要hexo new page index,在index/index.md填写的内容将会展现在首页上
-    文章: /list/ # 需要hexo new page list
+   首页: /  #需要hexo new page index,在index/index.md填写的内容将会展现在首页上
+   文章: /list/ # 需要hexo new page list
   # 添加其他页面格式举例：
-    关于: /about/ # 需要hexo new page about
+   关于: /about/ # 需要hexo new page about
   # 标签: /tags/ #需要hexo new page tags
   # 分类: /categories/ # 需要hexo new page categories
+  #时间轴: /html/index.html
   # ...
 
 # 首页你想要展示的menu链接，注意当你修改了menu中的别名，这里要随着更改，不然你会疑惑怎么首页没有修改后的别名
 showInMenu:  # menu 中的哪些页面显示在首页中（“首页”必定显示）
-    - 文章  # 将在首页显示 文章 链接
-    - 关于
+   - 文章  # 将在首页显示 文章 链接
+  # - 时间轴
+   - 关于
   # - 标签
   # - 分类
 
@@ -31,7 +33,7 @@ index:  # 首页相关配置
   width: small  # small | middle | big # 首页的宽度
 
 footerLink: # 底部的链接自定义
-  info:   # info这个单词不能修改，不想使用可为空
+  info:  # info这个单词不能修改，不想使用可为空
   # 添加链接格式 举例
   # 友链: /friends/ # 需要hexo new page friends
   # 联系: /contact/ # 需要hexo new page contact
@@ -39,15 +41,13 @@ footerLink: # 底部的链接自定义
   # ...
 
 post:
-  footer: 🌊看过大海的人不会忘记海的广阔🌊
+  footer: 金钱是第一生产力
   themeInfo: false # 是否开启底部右侧声明本站信息
   width: middle  #  middle | big 
   titlePosition: center # left ｜ center 文章标题的位置
   
 # 相对于source目录下的头像url
-favicon: /img/Peter.jpg # 默认方形头像
-isRoundedAvatar: true # 是否圆形头像
-isAvatarRotating: true # 圆形头像是否开启悬浮旋转
+favicon: /img/Peter.jpg
 
 # 是否启用一些特色工具 false | true
 tool:
@@ -85,13 +85,6 @@ postInfo:
     prevInfo: 上一篇 # 上一篇提示文案，照顾到英文用户，你可以设置为英语单词
     nextInfo: 下一篇 # 下一篇提示文案，照顾到英文用户，你可以设置为英语单词
   endContent: 以上 # 当你使用了 评论功能，此配置才会生效
-
-# 列表页面的配置
-listInfo:
-  enable: false
-  hoverStyle: underline # box | circle | underline | highlight | strike-through | crossed-off # 鼠标悬浮在文章列表上时的样式
-  hoverColor: "#4f7dde" # 鼠标悬浮在文章列表上时的颜色
-  animationDuration: 800 # 鼠标悬浮在文章列表上时的动画时长,单位ms毫秒
 
 # 你可能会用到的 https://ninojay.top/2023/website-cdn/
 cdn:
@@ -139,13 +132,13 @@ lightgallery:
 # 评论插件：需要根据教程自行部署评论服务
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false 
+  enable: true 
   use: waline # values: waline、twikoo、artalk
 
   # Waline
   # See: https://waline.js.org/guide/get-started.html
   waline:
-    serverUrl: https://vercel.isjingbin.cn/ # Waline server url(vercel) example: https://example.example.com
+    serverUrl:  https://vercel.isjingbin.cn/ # Waline server url(vercel) example: https://example.example.com
     lang: zh-CN # Waline language, default: zh-CN. See: https://waline.js.org/guide/client/i18n.html
     placeholder: 留下你的评论吧。 # 评论框背景信息
 
@@ -162,7 +155,7 @@ comment:
   artalk:
     server:  # Artalk 后端地址
 
-inject: 
-  css: css/custom.css # 找到该文件后，编写你的css样式，每个页面都会自动引入
+inject:
+  css: css/custom.css
 
-version: v1.9.8
+version: v1.9.6
