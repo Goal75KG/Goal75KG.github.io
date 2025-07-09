@@ -29,9 +29,10 @@ index:  # 首页相关配置
   footer: Email:jingbin.lin@outlook.com # 除了可以填写任何文字外，可以自动邮箱链接化，但需按照这个格式填写：Email:xxx@gmail.com
   titlePosition: left # center | left  # 首页标题的位置
   width: small  # small | middle | big # 首页的宽度
+  list: false # 开启后会在首页展示文章列表
 
 footerLink: # 底部的链接自定义
-  info:   # info这个单词不能修改，不想使用可为空
+  info:  # info这个单词不能修改，不想使用可为空
   # 添加链接格式 举例
   # 友链: /friends/ # 需要hexo new page friends
   # 联系: /contact/ # 需要hexo new page contact
@@ -41,9 +42,9 @@ footerLink: # 底部的链接自定义
 post:
   footer: 🌊看过大海的人不会忘记海的广阔🌊
   themeInfo: false # 是否开启底部右侧声明本站信息
-  width: middle  #  middle | big 
+  width: middle  #  middle | big
   titlePosition: center # left ｜ center 文章标题的位置
-  
+
 # 相对于source目录下的头像url
 favicon: /img/Peter.jpg # 默认方形头像
 isRoundedAvatar: true # 是否圆形头像
@@ -52,7 +53,7 @@ isAvatarRotating: true # 圆形头像是否开启悬浮旋转
 # 是否启用一些特色工具 false | true
 tool:
   darkMode: true # 暗黑模式
-  returnToTop: true # 回到顶部按钮 
+  returnToTop: true # 回到顶部按钮
   returnToLast: false # 回退页面按钮
   topToc: true # 文章顶部目录
   leftToc: true # 文章左侧目录 目前仅支持大屏幕浮现
@@ -63,7 +64,7 @@ tool:
 
 # ---------------------------------------------------------------------------------------
 # 以上为基本配置，实现了A4主题追求的纯净风
-# 
+#
 # 以下为 非必要不必更改的配置
 #
 # ps：还有经过A4作者测试，可供你使用的插件，详见：https://ninojay.top/tags/hexoPlugin/
@@ -73,9 +74,9 @@ tool:
 indexInfo:
   allWordCount: true # 是否显示全站字数统计
   allViewCount: true # 是否显示全站访问量统计
-  
+
 # 文章页面的信息
-postInfo: 
+postInfo:
   updateDate: true # 是否显示文章最近更新时间
   wordCount: true # 是否显示文章字数统计
   readTime: true # 是否显示文章预计阅读耗时
@@ -103,14 +104,14 @@ cdn:
 # 设置为 false 为 A4 默认灰白色调，可设置为 true 直接启动 体验下 另一种护眼预置色调
 # 注：颜色代码需加“#”，颜色单词不需要加“#”
 # 更多A4色调搭配推荐：https://ninojay.top/hexoplugin/A4-color-change/
-color: 
-  enable: false # true | false 
+color:
+  enable: false # true | false
   font: "#9e5345" # 字体颜色
   background: "#e8e0c9" # 最底部层背景颜色
   indexBackGround: "#efeae2" # 首页层颜色
   postBackGround: "#efeae2" # 文章页层颜色
   codeBackGround: "#e8e0c9" # 代码块背景颜色
-  codeFont: "#2e5041" # 代码块字体颜色 
+  codeFont: "#2e5041" # 代码块字体颜色
   linkBeforeClick: "#2e5041" # 链接点击前的颜色
   linkAfterClick: "#9c9caf" # 链接点击后的颜色
 
@@ -123,7 +124,7 @@ imageShow:
 # A4默认中文使用霞鹜文楷，如果你想关闭这种字体，首先保证enable为 true 接着可以开关对应字体
 font:
   enable: false # 是否使用字体开关功能
-  LXGWWenKai: true # 霞鹜文楷 如果关闭，中文则使用的是 思源宋体，思源宋体不提供关闭 
+  LXGWWenKai: true # 霞鹜文楷 如果关闭，中文则使用的是 思源宋体，思源宋体不提供关闭
 
 # 图片幻灯片配置
 lightgallery:
@@ -133,19 +134,19 @@ lightgallery:
   autoplay: true # 启用自动播放功能
   fullScreen: true # 启用全屏功能
   pager: false # 页码
-  
+
 # ---------------------------------------------------------------------------------------
 # Comment plugin
 # 评论插件：需要根据教程自行部署评论服务
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false 
-  use: waline # values: waline、twikoo、artalk
+  enable: false
+  use: waline # values: waline、twikoo、giscus、artalk
 
   # Waline
   # See: https://waline.js.org/guide/get-started.html
   waline:
-    serverUrl: https://vercel.isjingbin.cn/ # Waline server url(vercel) example: https://example.example.com
+    serverUrl: https://vercel.isjingbin.cn # Waline server url(vercel) example: https://example.example.com
     lang: zh-CN # Waline language, default: zh-CN. See: https://waline.js.org/guide/client/i18n.html
     placeholder: 留下你的评论吧。 # 评论框背景信息
 
@@ -156,13 +157,31 @@ comment:
     region:  # 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；其它环境不填
     lang:  # 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
 
+  # Giscus
+  # See: https://giscus.app
+  giscus:
+    dataRepo: # data-repo，必填
+    dataRepoId: # data-repo-id，必填
+    dataCategory: # data-category，选填
+    dataCategoryId: # data-category-id，data-mapping="number"时不填，其他情况下必填
+    dataMapping: pathname # data-mapping
+    dataTerm: # data-term，data-mapping="number"或"specific"时必填，其他情况下不填
+    dataStrict: "0" # data-strict
+    dataReactionsEnabled: "1" # data-reactions-enabled
+    dataEmitMetadata: "0" # data-emit-metadata
+    dataInputPosition: bottom # data-input-position
+    dataTheme: preferred_color_scheme # data-theme
+    dataLang: zh-CN # data-lang
+    dataLoading: # data-loading，选填
+    crossorigin: anonymous # crossorigin
+    async: true # async
 
   # Artalk
   # See: https://artalk.js.org/guide/deploy.html
   artalk:
     server:  # Artalk 后端地址
 
-inject: 
+inject:
   css: css/custom.css # 找到该文件后，编写你的css样式，每个页面都会自动引入
 
-version: v1.9.8
+version: v2.0.0
