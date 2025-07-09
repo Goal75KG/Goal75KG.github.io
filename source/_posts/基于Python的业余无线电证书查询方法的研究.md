@@ -17,7 +17,7 @@ date: 2024-09-25 00:15:08
 
 通过一番搜集，暂且发现只有[业余无线电台操作技术能力信息平台](https://yydtcznl.miit.gov.cn/#:~:text=业余无线电台操作技术)和[业余无线电台操作技术能力验证及信息管理系统](http://82.157.138.16:8091/CRAC/crac/pages/list_cert.html)可以查询证书，而工业和信息化部政务服务平台的业余无线电台操作技术能力信息平台需要姓名和手机号为查询条件，接收验证码才可查询，显然不满足社区查询验证所用的条件。
 
-![业余无线电台操作技术能力信息平台](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409250031225.png)于是业余无线电台操作技术能力验证及信息管理系统则成为了这次的研究对象。![业余无线电台操作技术能力验证及信息管理系统](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409250032682.png)
+![业余无线电台操作技术能力信息平台](https://blogimg.isjingbin.cn/PicGo/202409250031225.png)于是业余无线电台操作技术能力验证及信息管理系统则成为了这次的研究对象。![业余无线电台操作技术能力验证及信息管理系统](https://blogimg.isjingbin.cn/PicGo/202409250032682.png)
 
 该系统查询条件为姓名、证书编号（选填）、身份证号，符合社区查询条件，猜测社区认证过程可能是社区管理员手动查询或者调用了查询接口进行信息处理和判断，来了兴趣，一定要探索一番。
 
@@ -33,7 +33,7 @@ date: 2024-09-25 00:15:08
 
 “问”则是通过分析发送的请求以及返回的数据，找到接口地址、判断用到的技术、分析所需的数据。先填入正确的信息模拟正常操作，查看网络请求的本体。打开开发者控制台，输入查询条件，点击查询，运气不错，发现唯一网络请求，这正是今天的主角。
 
-![正确网络请求数据包](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409250049824.png)
+![正确网络请求数据包](https://blogimg.isjingbin.cn/PicGo/202409250049824.png)
 
 ### 请求分析
 
@@ -76,7 +76,7 @@ XMLHttpRequest
 
 POST请求区别于GET请求的是POST请求是带有请求体，而不是在HTTP链接后面添加参数。所以想知道我们单击按钮后发送了什么，就需要查看请求体。
 
-![请求体](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409250057440.png)
+![请求体](https://blogimg.isjingbin.cn/PicGo/202409250057440.png)
 
 ```json
 {"req":{"page_no":"1","page_size":"100","name":"***","certificateNo":"","idCarNumber":"******************"}}
@@ -94,11 +94,11 @@ POST请求区别于GET请求的是POST请求是带有请求体，而不是在HTT
 
 *错误输入结果*
 
-![错误输入结果](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409250114539.png)
+![错误输入结果](https://blogimg.isjingbin.cn/PicGo/202409250114539.png)
 
 *正确输入结果*
 
-![正确输入结果](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409250116734.png)
+![正确输入结果](https://blogimg.isjingbin.cn/PicGo/202409250116734.png)
 
 源代码如下：
 

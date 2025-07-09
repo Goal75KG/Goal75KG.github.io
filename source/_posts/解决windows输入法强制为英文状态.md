@@ -10,14 +10,14 @@ date: 2024-09-08 17:38:28
 ---
 ## 写在前面
 在windows10中，默认输入法为中文，但某些时候输入法莫名其妙地强制切换为英文，具体现象是：切换窗口，输入法就变成英文了，想输入中文还要手动切换回来，非常影响效率。
-![问题预览](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409081748937.gif)
+![问题预览](https://blogimg.isjingbin.cn/PicGo/202409081748937.gif)
 
 ## 产生原因及解决思路
 在出现该问题前，我曾因为Macig keyboard2 无法通过fn+功能键实现翻页、DEL 等操作而安装了来自Github开源驱动和键盘布局，重启后就导致输入法无法切换为中文。将布局文件删除后，可以切换中文了，但是就像我所描述的那样，切换窗口就会自动变为英文，~~所以我猜测，安装键盘驱动或者布局文件会导致输入法某些状态被更改。~~
 
 因为系统在正常运行时的上一个操作是添加了布局文件（Keyboard Layouts），于是我找到相关注册表位置进行一番摸索，果然让我发现了异常。在`计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts`目录下存储着系统键盘布局表，而我在这里却没有发现简体中文（中国大陆）的身影，通过询问AI得知简体中文（中国大陆）的键为`00000804`，而布局文件中并没有（我这里有是因为后截的图hhh），相关注册表网络上也寻找不到，于是找到好友复制了一份，导入后恢复了正常。
 
-![Keyboard Layouts注册表](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082044968.png)
+![Keyboard Layouts注册表](https://blogimg.isjingbin.cn/PicGo/202409082044968.png)
 
 ## 解决方案
 
@@ -39,7 +39,7 @@ Windows Registry Editor Version 5.00
 
 > 下载地址：[Keyboard Layouts.reg](https://pan.baidu.com/s/1yTmRCOr2WcIGpuqIyN-3tg?pwd=cmc5)
 
-![问题解决截图](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202409082108048.gif)
+![问题解决截图](https://blogimg.isjingbin.cn/PicGo/202409082108048.gif)
 
 ##  写在最后
 

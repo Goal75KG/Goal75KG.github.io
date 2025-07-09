@@ -26,34 +26,34 @@ date: 2024-11-12 19:28:29
 1. 访问[WxPusher官网](https://wxpusher.zjiecode.com/)，微信扫码登录
 2. 单击「应用管理」，「应用信息」，应用名字填写`movecar`，联系方式填写手机号，推送内容随便写，这里填写`挪车`
 
-![image-20241112172836932](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121728012.png)
+![image-20241112172836932](https://blogimg.situ.edu.kg/PicGo/202411121728012.png)
 
 3. 单击左侧「appToken」，未创建应用可能显示创建`appToken`等字样，创建后这里仅显示`重置appToken`，创建后记录下`AppToken`
 4. 单击左侧「用户管理」、「用户列表」，记录下个人UID
 
-![image-20241112173103996](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121731074.png)
+![image-20241112173103996](https://blogimg.situ.edu.kg/PicGo/202411121731074.png)
 
 ## Cloudflare Workers
 
 1. 访问[Cloudlare](https://dash.cloudflare.com/)并登录。
 2. 单击「Workers 和 Pages」，「创建」
 
-![image-20241112165513293](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121655382.png)
+![image-20241112165513293](https://blogimg.situ.edu.kg/PicGo/202411121655382.png)
 
 3. 单击「创建Worker」
-  ![image-20241112165611685](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121656763.png)
+  ![image-20241112165611685](https://blogimg.situ.edu.kg/PicGo/202411121656763.png)
 
 4. 为Worker命名，我这里填写movecar，单击页面下方「部署」
 
-![image-20241112165805708](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121658790.png)
+![image-20241112165805708](https://blogimg.situ.edu.kg/PicGo/202411121658790.png)
 
 5. 单击「编辑代码」
 
-![image-20241112165901508](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121659593.png)
+![image-20241112165901508](https://blogimg.situ.edu.kg/PicGo/202411121659593.png)
 
 6. 将提前准备好的挪车页面代码粘贴进去，替换好`WXPusher`相关的值，单击右上地址栏右面的「预览」
 
-![image-20241112170239557](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121702656.png)
+![image-20241112170239557](https://blogimg.situ.edu.kg/PicGo/202411121702656.png)
 
 **这里附上源代码：**
 
@@ -153,30 +153,30 @@ async function handleRequest(request) {
 
 7. 单击「通知车主挪车」，测试是否正常推送消息。
 
-![image-20241112170352346](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121703429.png)
+![image-20241112170352346](https://blogimg.situ.edu.kg/PicGo/202411121703429.png)
 
-![image-20241112170417085](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121704129.png)
+![image-20241112170417085](https://blogimg.situ.edu.kg/PicGo/202411121704129.png)
 
 8. 单击右上「部署」，等待部署完成
 9. 回到[Cloudflare主页](https://dash.cloudflare.com/)，单击托管的「域名」
 
-![image-20241112170626925](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121706005.png)
+![image-20241112170626925](https://blogimg.situ.edu.kg/PicGo/202411121706005.png)
 
 10. 单击左侧「DNS」
 
-![image-20241112170740394](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121707474.png)
+![image-20241112170740394](https://blogimg.situ.edu.kg/PicGo/202411121707474.png)
 
 11. 单击「添加记录」，类型选择`A`，名称随意（该名称为二级域名），IPV4随意填写，这里名称我填写`movecar`，IPV4填写`2.2.2.2`，填写完成单击「保存」
 
-![image-20241112171051194](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121710277.png)
+![image-20241112171051194](https://blogimg.situ.edu.kg/PicGo/202411121710277.png)
 
 12. 单击左侧「Workers 路由」，「添加路由」，路由填写刚才设置的二级域名，Worker选择刚才创建的Worker，这里我的路由填写`movecar.**.com`，Worker选择`movecar`，单击「保存」
 
-![image-20241112171439121](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121714210.png)
+![image-20241112171439121](https://blogimg.situ.edu.kg/PicGo/202411121714210.png)
 
 13. 保存成功后，尝试访问设定好的域名，单击「通知车主挪车」，测试是否正常发送
 
-![image-20241112171638756](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121716858.png)
+![image-20241112171638756](https://blogimg.situ.edu.kg/PicGo/202411121716858.png)
 
 **以上就是利用Cloudflare Workers部署挪车页面的过程了，码字不易，请多多支持！**
 
@@ -186,20 +186,20 @@ async function handleRequest(request) {
 
 访问[在线JavaScript混淆加密](https://www.lddgo.net/encrypt/js)，将部署好的代码粘贴进来，单击「混淆」，将混淆后的代码粘贴回Cloudflare Workers代码编辑页面，单击「部署」即可
 
-![image-20241112174047764](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121740873.png)
+![image-20241112174047764](https://blogimg.situ.edu.kg/PicGo/202411121740873.png)
 
-![image-20241112174214060](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121742155.png)
+![image-20241112174214060](https://blogimg.situ.edu.kg/PicGo/202411121742155.png)
 
 # 二维码转换
 
 1. 访问[草料二维码](https://console.cli.im/)
 2. 输入上面建好的页面网址，单击「生成」，注意：一定要加上https，否则微信有可能会拦截。
 
-![image-20241112175434242](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121754342.png)
+![image-20241112175434242](https://blogimg.situ.edu.kg/PicGo/202411121754342.png)
 
 3. 还可以根据自己的喜好进行美化，例如我使用微信配色，让人一眼就知道要用微信扫码挪车。
 
-![image-20241112175526935](https://isjingbincn-wordpress-image.oss-cn-beijing.aliyuncs.com/202411121755061.png)
+![image-20241112175526935](https://blogimg.situ.edu.kg/PicGo/202411121755061.png)
 
 4. 打印粘贴就可以了。
 

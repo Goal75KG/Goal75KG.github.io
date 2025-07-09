@@ -14,7 +14,7 @@ date: 2025-05-20 20:22:58
 
 # 问题原因分析
 
-![](https://blogimage.12138.click/PicGo/1747746595611.png)
+![](https://blogimg.situ.edu.kg/PicGo/1747746595611.png)
 在解决问题之前，先来看看为什么会出现这个问题。
 
 英伟达驱动程序安装时会进行兼容性检查，这个过程中会检查计算机上的显卡硬件ID是否存在于驱动安装程序的INF文件中，如果不存在则会报出**没有找到兼容的图形硬件**。
@@ -22,9 +22,9 @@ date: 2025-05-20 20:22:58
 # 驱动安装解决方案
 ## 查找硬件ID
 1. 右键**“此电脑” → 管理 → 设备管理器 → 显示适配器**，
-![](https://blogimage.12138.click/PicGo/1747747045134.png)
+![](https://blogimg.situ.edu.kg/PicGo/1747747045134.png)
 2. 右键**独立显卡（这里为 3050 Ti） → 详细信息 → 属性下拉 → 硬件Id**
-![](https://blogimage.12138.click/PicGo/1747747133631.png)
+![](https://blogimg.situ.edu.kg/PicGo/1747747133631.png)
 
 我这里的硬件Id为：`PCI\VEN_10DE&DEV_25A0&SUBSYS_21371D72
 `
@@ -38,13 +38,13 @@ date: 2025-05-20 20:22:58
 ## 修改驱动安装程序INF文件
 ### 提取驱动程序安装文件
 1. 双击运行驱动安装程序，复制安装路径，单击OK，开始执行解压程序。
-![](https://blogimage.12138.click/PicGo/1747747164751.png)
+![](https://blogimg.situ.edu.kg/PicGo/1747747164751.png)
 
 2. 等待驱动程序进行兼容性检查，检查失败后不要关闭窗口。 
-![](https://blogimage.12138.click/PicGo/1747747178443.png)  
+![](https://blogimg.situ.edu.kg/PicGo/1747747178443.png)  
 
 3. 复制步骤1的安装路径的所有文件到其他位置，依次进入`C:\NVIDIA\DisplayDriver\576.40\Win11_Win10-DCH_64\International\Display.Driver`，路径根据驱动程序的不同略有不同。
-![](https://blogimage.12138.click/PicGo/1747747192115.png)
+![](https://blogimg.situ.edu.kg/PicGo/1747747192115.png)
 
 ### 修改对应的INF文件
 1. 修改INF文件中的显卡硬件iD
